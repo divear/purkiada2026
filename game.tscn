@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4nfb6qxi8roi"]
+
+[ext_resource type="Texture2D" uid="uid://cfo3fso4gw1q1" path="res://icon.svg" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://l61rmwrtdvtb" path="res://Robot.cs" id="2_e2o6t"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_e2o6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
+size = Vector2(137.85315, 131.07346)
+
+[node name="Game" type="Node2D"]
+
+[node name="IDE" type="CanvasGroup" parent="."]
+position = Vector2(199, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="IDE"]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+position = Vector2(117.999985, 129)
+scale = Vector2(2.8437498, 3.015625)
+texture = ExtResource("1_80nbo")
+
+[node name="TextEdit" type="TextEdit" parent="IDE"]
+offset_left = -37.0
+offset_top = -42.0
+offset_right = 270.0
+offset_bottom = 288.0
+text = "MOVE(3.2){
+SDFAS\\)
+
+}"
+syntax_highlighter = SubResource("CodeHighlighter_e2o6t")
+highlight_current_line = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="IDE"]
+offset_left = -45.0
+offset_top = -129.0
+offset_right = 117.0
+offset_bottom = -82.0
+tooltip_text = "tohle vrátí kód do původního stavu"
+text = "RESET TEXT"
+
+[node name="robot" type="CharacterBody2D" parent="."]
+position = Vector2(817, 190)
+script = ExtResource("2_e2o6t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="robot"]
+position = Vector2(-1, -3)
+scale = Vector2(0.885, 0.885)
+shape = SubResource("RectangleShape2D_80nbo")
+
+[node name="Sprite2D" type="Sprite2D" parent="robot"]
+position = Vector2(1, -1)
+texture = ExtResource("1_80nbo")
