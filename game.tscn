@@ -1,14 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4nfb6qxi8roi"]
+[gd_scene load_steps=8 format=3 uid="uid://c4nfb6qxi8roi"]
 
 [ext_resource type="Texture2D" uid="uid://cfo3fso4gw1q1" path="res://icon.svg" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://c5xonsprvkyok" path="res://Game.cs" id="1_feb5d"]
 [ext_resource type="Script" uid="uid://l61rmwrtdvtb" path="res://Robot.cs" id="2_e2o6t"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_e2o6t"]
+
+[sub_resource type="SystemFont" id="SystemFont_feb5d"]
+font_italic = true
+font_weight = 100
+font_stretch = 125
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fc0e3"]
+bg_color = Color(0.83599424, 0.5297683, 0.42705747, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
 size = Vector2(137.85315, 131.07346)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_feb5d")
 
 [node name="IDE" type="CanvasGroup" parent="."]
 position = Vector2(199, 250)
@@ -20,35 +34,55 @@ scale = Vector2(2.8437498, 3.015625)
 texture = ExtResource("1_80nbo")
 
 [node name="TextEdit" type="TextEdit" parent="IDE"]
-offset_left = -37.0
-offset_top = -42.0
-offset_right = 270.0
-offset_bottom = 288.0
-text = "MOVE(3.2){
-SDFAS\\)
-
-}"
+offset_left = -43.0
+offset_top = -46.0
+offset_right = 264.0
+offset_bottom = 284.0
+text = "left(1)
+"
 syntax_highlighter = SubResource("CodeHighlighter_e2o6t")
 highlight_current_line = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="IDE"]
-offset_left = -45.0
-offset_top = -129.0
-offset_right = 117.0
-offset_bottom = -82.0
+offset_left = -50.0
+offset_top = -128.0
+offset_right = 112.0
+offset_bottom = -81.0
 tooltip_text = "tohle vrátí kód do původního stavu"
+theme_override_colors/font_color = Color(0.8343638, 0.94100696, 0.07202587, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.3529412, 1)
+theme_override_fonts/font = SubResource("SystemFont_feb5d")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_fc0e3")
 text = "RESET TEXT"
+
+[node name="Button" type="Button" parent="IDE/Button"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 4.0
+offset_right = 292.0
+offset_bottom = 53.0
+tooltip_text = "tohle vrátí kód do původního stavu"
+theme_override_colors/font_color = Color(0.8352941, 0.02745098, 0.07058824, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0.3529412, 1)
+theme_override_fonts/font = SubResource("SystemFont_feb5d")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_fc0e3")
+text = "RUN"
 
 [node name="robot" type="CharacterBody2D" parent="."]
 position = Vector2(817, 190)
 script = ExtResource("2_e2o6t")
 
+[node name="Sprite2D" type="Sprite2D" parent="robot"]
+position = Vector2(-1.5, -7.5)
+scale = Vector2(0.9609375, 0.8984375)
+texture = ExtResource("1_80nbo")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="robot"]
-position = Vector2(-1, -3)
+position = Vector2(0, -7)
 scale = Vector2(0.885, 0.885)
 shape = SubResource("RectangleShape2D_80nbo")
 
-[node name="Sprite2D" type="Sprite2D" parent="robot"]
-position = Vector2(1, -1)
-texture = ExtResource("1_80nbo")
+[connection signal="text_changed" from="IDE/TextEdit" to="." method="_on_text_edit_text_changed"]

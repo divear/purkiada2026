@@ -3,8 +3,20 @@ using System;
 
 public partial class StartPage : Control
 {
+    [Export]
+    public Button? StartButton { get; set; }
+    [Export]
+    public Button? SettingsButton { get; set; }
     public override void _Ready()
+  {
+    ArgumentNullException.ThrowIfNull(this.StartButton);
+    ArgumentNullException.ThrowIfNull(this.SettingsButton);
+    this.StartButton.Pressed += () =>
     {
-        GD.Print("Start Page Loaded");
-    }
+      var gameScene = GD.Load<PackedScene>("res://game.tscn").Instantiate<Game>();
+      AddChild(gameScene);
+      GD.Print("Start Page ");
+    };
+    GD.Print("Start Page Loaded");
+  }
 }
