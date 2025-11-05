@@ -1,11 +1,131 @@
-[gd_scene load_steps=17 format=4 uid="uid://c4nfb6qxi8roi"]
+[gd_scene load_steps=13 format=3 uid="uid://c4nfb6qxi8roi"]
 
+[ext_resource type="Script" uid="uid://cd8gy0fl21bw2" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://cfo3fso4gw1q1" path="res://icon.svg" id="1_80nbo"]
-[ext_resource type="Script" uid="uid://c5xonsprvkyok" path="res://Game.cs" id="1_feb5d"]
-[ext_resource type="Script" uid="uid://l61rmwrtdvtb" path="res://Robot.cs" id="2_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://dxdp08n65r23p" path="res://rocks_shadow.png" id="2_ryrav"]
-[ext_resource type="Texture2D" uid="uid://dr8gof5w1vgs4" path="res://assets/black.png" id="4_7jktm"]
-[ext_resource type="Texture2D" uid="uid://b0aw32qdqxis" path="res://assets/white.png" id="5_ryrav"]
+[ext_resource type="Script" uid="uid://b4ak2ien5a3ri" path="res://robot.gd" id="5_7jktm"]
+[ext_resource type="Texture2D" uid="uid://8iu3yu7ha12m" path="res://assets/tilemap.png" id="8_j5wjh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iotsf"]
+texture = ExtResource("8_j5wjh")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(18, 18)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lc2xo"]
+tile_size = Vector2i(18, 18)
+sources/0 = SubResource("TileSetAtlasSource_iotsf")
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_e2o6t"]
 
@@ -22,188 +142,65 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
-size = Vector2(137.85315, 131.07346)
+size = Vector2(88.13562, 81.35593)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eow3j"]
-texture = ExtResource("4_7jktm")
-texture_region_size = Vector2i(50, 50)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-1:0/0 = 0
-1:0/0/terrain_set = 0
-2:0/0 = 0
-2:0/0/terrain_set = 0
-3:0/0 = 0
-3:0/0/terrain_set = 0
-0:1/0 = 0
-0:1/0/terrain_set = 0
-0:1/0/terrain = 0
-0:1/0/terrains_peering_bit/right_side = 0
-0:1/0/terrains_peering_bit/bottom_right_corner = 0
-0:1/0/terrains_peering_bit/bottom_side = 0
-0:1/0/terrains_peering_bit/bottom_left_corner = 0
-0:1/0/terrains_peering_bit/left_side = 0
-0:1/0/terrains_peering_bit/top_left_corner = 0
-0:1/0/terrains_peering_bit/top_side = 0
-0:1/0/terrains_peering_bit/top_right_corner = 0
-1:1/0 = 0
-1:1/0/terrain_set = 0
-2:1/0 = 0
-2:1/0/terrain_set = 0
-3:1/0 = 0
-3:1/0/terrain_set = 0
-0:2/0 = 0
-0:2/0/terrain_set = 0
-1:2/0 = 0
-1:2/0/terrain_set = 0
-2:2/0 = 0
-2:2/0/terrain_set = 0
-3:2/0 = 0
-3:2/0/terrain_set = 0
-0:3/0 = 0
-0:3/0/terrain_set = 0
-1:3/0 = 0
-1:3/0/terrain_set = 0
-2:3/0 = 0
-2:3/0/terrain_set = 0
-3:3/0 = 0
-3:3/0/terrain_set = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5wjh"]
-texture = ExtResource("5_ryrav")
-texture_region_size = Vector2i(50, 50)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-1:0/0 = 0
-1:0/0/terrain_set = 0
-2:0/0 = 0
-2:0/0/terrain_set = 0
-3:0/0 = 0
-3:0/0/terrain_set = 0
-0:1/0 = 0
-0:1/0/terrain_set = 0
-0:1/0/terrain = 0
-0:1/0/terrains_peering_bit/right_side = 0
-0:1/0/terrains_peering_bit/bottom_right_corner = 0
-0:1/0/terrains_peering_bit/bottom_side = 0
-0:1/0/terrains_peering_bit/bottom_left_corner = 0
-0:1/0/terrains_peering_bit/left_side = 0
-0:1/0/terrains_peering_bit/top_left_corner = 0
-0:1/0/terrains_peering_bit/top_side = 0
-0:1/0/terrains_peering_bit/top_right_corner = 0
-1:1/0 = 0
-1:1/0/terrain_set = 0
-2:1/0 = 0
-2:1/0/terrain_set = 0
-3:1/0 = 0
-3:1/0/terrain_set = 0
-0:2/0 = 0
-0:2/0/terrain_set = 0
-1:2/0 = 0
-1:2/0/terrain_set = 0
-2:2/0 = 0
-2:2/0/terrain_set = 0
-3:2/0 = 0
-3:2/0/terrain_set = 0
-0:3/0 = 0
-0:3/0/terrain_set = 0
-1:3/0 = 0
-1:3/0/terrain_set = 0
-2:3/0 = 0
-2:3/0/terrain_set = 0
-3:3/0 = 0
-3:3/0/terrain_set = 0
-
-[sub_resource type="TileSet" id="TileSet_vef74"]
-tile_size = Vector2i(50, 50)
-terrain_set_0/mode = 0
-terrain_set_0/terrain_0/name = "Terrain 0"
-terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_eow3j")
-sources/1 = SubResource("TileSetAtlasSource_j5wjh")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ryrav"]
-texture = ExtResource("4_7jktm")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vef74"]
-texture = ExtResource("5_ryrav")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_hve3p"]
-sources/0 = SubResource("TileSetAtlasSource_ryrav")
-sources/1 = SubResource("TileSetAtlasSource_vef74")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
+size = Vector2(252, 357)
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_feb5d")
+script = ExtResource("1_7jktm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
-offset_right = 1156.0
-offset_bottom = 650.0
+offset_left = -48.0
+offset_top = 10.0
+offset_right = 1108.0
+offset_bottom = 660.0
 color = Color(0.40023273, 0.2017565, 0.26756668, 1)
+
+[node name="TileMap2" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(136, 10.000001)
+scale = Vector2(5, 5)
+tile_set = SubResource("TileSet_lc2xo")
+format = 2
+layer_0/tile_data = PackedInt32Array(3, 917504, 0, 4, 917504, 0, 65542, 131072, 2, 5, 917504, 0, 6, 917504, 0, 7, 917504, 0, 65543, 917504, 1, 131079, 131072, 2, 196615, 917504, 1, 262151, 131072, 2, 262150, 917504, 1, 262149, 131072, 2, 262148, 917504, 1, 262147, 917504, 1, 196611, 917504, 1, 131075, 917504, 1, 65539, 917504, 1, 65540, 131072, 2, 65541, 917504, 1, 131076, 917504, 1, 131078, 917504, 1, 196612, 131072, 2, 196613, 917504, 1, 196614, 131072, 2, 131077, 131072, 2, 8, 917504, 0, 9, 917504, 0, 10, 917504, 0, 65546, 917504, 1, 131082, 917504, 1, 196618, 917504, 1, 393226, 917504, 1, 262154, 917504, 1, 327690, 917504, 1, 65544, 131072, 2, 131080, 917504, 1, 196616, 131072, 2, 262152, 917504, 1, 327688, 131072, 2, 393224, 917504, 1, 65545, 917504, 1, 131081, 131072, 2, 196617, 917504, 1, 262153, 131072, 2, 327689, 917504, 1, 393225, 917504, 1, 327684, 131072, 2, 393220, 917504, 1, 327685, 917504, 1, 393221, 917504, 1, 327686, 131072, 2, 393222, 917504, 1, 327687, 917504, 1, 393223, 917504, 1, 393219, 917504, 1, 327683, 917504, 1, 720908, 262144, 2, 655372, 262144, 2, 589836, 262144, 1, 458755, 917504, 1, 524291, 917504, 1, 65535, 851968, 0, 2, 917504, 0, 1, 917504, 0, 0, 917504, 0, 131071, 851968, 1, 196607, 851968, 1, 262143, 851968, 1, 327679, 851968, 1, 393215, 851968, 1, 458751, 851968, 1, 524287, 851968, 1, 458752, 917504, 1, 524288, 917504, 1, 589823, 851968, 1, 655359, 851968, 1, 720895, 851968, 1, 786431, 851968, 2, 851967, 327680, 0, 720896, 917504, 2, 720897, 917504, 2, 720898, 917504, 2, 720899, 917504, 2, 720900, 917504, 2, 720901, 917504, 2, 720902, 917504, 2, 720903, 917504, 2, 720904, 917504, 2, 720905, 917504, 2, 720906, 917504, 2, 720907, 983040, 2, 655371, 983040, 1, 589835, 983040, 1, 524299, 983040, 1, 458763, 983040, 1, 393227, 983040, 1, 327691, 983040, 1, 262155, 983040, 1, 196619, 983040, 1, 65547, 983040, 1, 131083, 983040, 1, 11, 983040, 0, 458761, 917504, 1, 458760, 917504, 1, 458759, 917504, 1, 458758, 917504, 1, 393218, 917504, 1, 458754, 917504, 1, 458753, 917504, 1, 393217, 917504, 1, 327681, 917504, 1, 327680, 917504, 1, 262144, 917504, 1, 196608, 917504, 1, 131072, 917504, 1, 65536, 917504, 1, 65537, 917504, 1, 65538, 917504, 1, 327682, 917504, 1, 262145, 917504, 1, 196609, 917504, 1, 131073, 917504, 1, 131074, 917504, 1, 196610, 917504, 1, 262146, 917504, 1, 393216, 917504, 1, 589824, 917504, 1, 655360, 917504, 1, 655361, 917504, 1, 655362, 917504, 1, 655363, 917504, 1, 655364, 917504, 1, 655365, 917504, 1, 655366, 917504, 1, 655367, 917504, 1, 655368, 917504, 1, 655369, 917504, 1, 655370, 917504, 1, 589834, 917504, 1, 524298, 917504, 1, 458762, 917504, 1, 524297, 917504, 1, 524296, 917504, 1, 589832, 917504, 1, 589833, 917504, 1, 589831, 917504, 1, 589830, 917504, 1, 524294, 917504, 1, 524295, 917504, 1, 524293, 917504, 1, 458757, 917504, 1, 458756, 917504, 1, 524290, 917504, 1, 589827, 917504, 1, 589828, 917504, 1, 589829, 917504, 1, 524292, 917504, 1, 524289, 917504, 1, 589825, 917504, 1, 589826, 917504, 1, 655376, 720896, 3, 655375, 720896, 3, 655374, 720896, 3, 720910, 720896, 3, 786446, 720896, 3, 786445, 720896, 3, 851981, 720896, 3, 917517, 720896, 3, 983053, 720896, 3, 1048589, 720896, 3, 1048590, 720896, 3, 1048591, 720896, 3, 983056, 720896, 3, 917520, 720896, 3, 851984, 720896, 3, 851983, 720896, 3, 720918, 720896, 3, 720917, 720896, 3, 720916, 720896, 3, 786451, 720896, 3, 851987, 720896, 3, 851986, 720896, 3, 917522, 720896, 3, 983058, 720896, 3, 983059, 720896, 3, 1048595, 720896, 3, 1048596, 720896, 3, 1048597, 720896, 3, 1048598, 720896, 3, 983062, 720896, 3, 917526, 720896, 3, 851990, 720896, 3, 851989, 720896, 3, 851988, 720896, 3)
 
 [node name="RocksShadow" type="Sprite2D" parent="."]
 visibility_layer = 512
-position = Vector2(920.3281, 534.28125)
+position = Vector2(372.0001, 530.00006)
 scale = Vector2(4.1757813, 3.803385)
 texture = ExtResource("2_ryrav")
 
 [node name="IDE" type="CanvasGroup" parent="."]
-position = Vector2(99, 278)
+position = Vector2(1406, 475)
 
 [node name="Sprite2D" type="Sprite2D" parent="IDE"]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-position = Vector2(117.999985, 129)
-scale = Vector2(2.8437498, 3.015625)
+position = Vector2(223.99994, 44.000015)
+scale = Vector2(3.8671868, 4.7578125)
 texture = ExtResource("1_80nbo")
 
 [node name="TextEdit" type="TextEdit" parent="IDE"]
-offset_left = -43.0
-offset_top = -46.0
-offset_right = 264.0
-offset_bottom = 284.0
-text = "left(1)
+offset_left = 13.0
+offset_top = -214.0
+offset_right = 363.41113
+offset_bottom = 151.1271
+scale = Vector2(1.2356911, 1.407729)
+theme_override_font_sizes/font_size = 20
+text = "right(1)
+down(1)
+right(1)
+down(1)
 "
 syntax_highlighter = SubResource("CodeHighlighter_e2o6t")
 highlight_current_line = true
-metadata/_edit_use_anchors_ = true
 
-[node name="ResetText" type="Button" parent="IDE"]
-offset_left = -50.0
-offset_top = -128.0
-offset_right = 112.0
-offset_bottom = -81.0
+[node name="ResetButton" type="Button" parent="IDE"]
+offset_left = 36.0
+offset_top = -327.0
+offset_right = 198.0
+offset_bottom = -280.0
 tooltip_text = "tohle vrátí kód do původního stavu"
 theme_override_colors/font_color = Color(0.8343638, 0.94100696, 0.07202587, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 0.3529412, 1)
@@ -213,24 +210,26 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_fc0e3")
 text = "RESET TEXT"
 
 [node name="robot" type="CharacterBody2D" parent="."]
-position = Vector2(817, 190)
-script = ExtResource("2_e2o6t")
+position = Vector2(564, 174)
+script = ExtResource("5_7jktm")
 
 [node name="Sprite2D" type="Sprite2D" parent="robot"]
-position = Vector2(-1.5, -7.5)
-scale = Vector2(0.9609375, 0.8984375)
+position = Vector2(-22.999979, -29)
+scale = Vector2(0.6250003, 0.5625)
 texture = ExtResource("1_80nbo")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="robot"]
-position = Vector2(0, -7)
+position = Vector2(-22, -29)
 scale = Vector2(0.885, 0.885)
 shape = SubResource("RectangleShape2D_80nbo")
+metadata/_edit_lock_ = true
 
 [node name="RunButton" type="Button" parent="."]
-offset_left = 267.0
-offset_top = 154.0
-offset_right = 341.0
-offset_bottom = 203.0
+offset_left = 1681.0
+offset_top = 162.0
+offset_right = 1755.0
+offset_bottom = 211.0
 tooltip_text = "tohle vrátí kód do původního stavu"
 theme_override_colors/font_color = Color(0.8352941, 0.02745098, 0.07058824, 1)
 theme_override_colors/font_pressed_color = Color(0, 1, 0.3529412, 1)
@@ -239,20 +238,10 @@ theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_fc0e3")
 text = "RUN"
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(191.00002, 20.000002)
-rotation = 1.5707964
-scale = Vector2(0.935, 0.935)
-tile_map_data = PackedByteArray("AAABAPP/AQAAAAEAAAABAPL/AAAAAAEAAAABAPH/AQAAAAEAAAABAPD/AAAAAAEAAAABAO//AAAAAAEAAAABAO7/AQAAAAEAAAACAO7/AAAAAAEAAAACAO//AQAAAAEAAAACAPD/AQAAAAEAAAACAPH/AQAAAAEAAAACAPL/AQAAAAEAAAACAPP/AQAAAAEAAAADAPP/AQAAAAEAAAADAPL/AAAAAAEAAAADAPH/AQAAAAEAAAADAPD/AAAAAAEAAAADAO//AQAAAAEAAAADAO7/AAAAAAEAAAAEAO7/AAAAAAEAAAAFAO7/AQAAAAEAAAAFAO//AQAAAAEAAAAFAPD/AQAAAAEAAAAEAPH/AAAAAAEAAAAEAPL/AQAAAAEAAAAEAPP/AQAAAAEAAAAFAPP/AAAAAAEAAAAFAPT/AQAAAAEAAAAEAPD/AQAAAAEAAAAFAPH/AQAAAAEAAAAFAPL/AQAAAAEAAAAGAO//AQAAAAEAAAAGAPD/AAAAAAEAAAAHAPH/AAAAAAEAAAAHAPL/AAAAAAEAAAAGAPL/AQAAAAEAAAAHAPD/AQAAAAEAAAAHAPP/AQAAAAEAAAAHAPT/AAAAAAEAAAAGAPT/AQAAAAEAAAAGAPX/AQAAAAEAAAAFAPX/AQAAAAEAAAAEAPT/AAAAAAEAAAAGAPP/AAAAAAEAAAAEAPX/AAAAAAEAAAADAPX/AAAAAAEAAAACAPT/AQAAAAEAAAADAPT/AQAAAAEAAAAGAPb/AQAAAAEAAAAFAPb/AAAAAAEAAAAEAPb/AAAAAAEAAAADAPb/AQAAAAEAAAACAPb/AAAAAAEAAAABAPX/AAAAAAEAAAAEAPf/AQAAAAEAAAACAPf/AQAAAAEAAAADAPf/AAAAAAEAAAABAPf/AAAAAAEAAAABAPb/AAAAAAEAAAABAPT/AAAAAAEAAAACAPX/AAAAAAEAAAA=")
-tile_set = SubResource("TileSet_vef74")
-rendering_quadrant_size = 100
-physics_quadrant_size = 50
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
 
-[node name="TileMap" type="TileMap" parent="."]
-position = Vector2(191.00002, 20.000002)
-rotation = 1.5707964
-scale = Vector2(0.935, 0.935)
-tile_set = SubResource("TileSet_hve3p")
-format = 2
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(2305, 404)
+shape = SubResource("RectangleShape2D_7jktm")
 
 [connection signal="text_changed" from="IDE/TextEdit" to="." method="_on_text_edit_text_changed"]

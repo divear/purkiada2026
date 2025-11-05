@@ -10,10 +10,18 @@ config_version=5
 
 [application]
 
-config/name="purkiada"
+config/name="purkiada2026"
 run/main_scene="res://game.tscn"
-config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.111126296, 0.5604594, 0.670754, 1)
+boot_splash/image="uid://djcnxqr6iycho"
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
 
 [dotnet]
 

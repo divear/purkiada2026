@@ -19,6 +19,7 @@ public partial class Game : Node2D
 
     // Optional Run button exported in inspector
     [Export] public Button? RunButton { get; set; }
+    [Export] public Button? ResetButton{ get; set; }
 
     public override void _Ready()
     {
@@ -31,9 +32,15 @@ public partial class Game : Node2D
         {
             RunButton = GetNodeOrNull<Button>("RunButton");
         }
+        if (ResetButton== null)
+        {
+            ResetButton = GetNodeOrNull<Button>("ResetButton");
+        }
 
         if (RunButton != null)
             RunButton.Pressed += async () => await ExecuteCommandsSequentially();
+        if (ResetButton!= null)
+            ResetButton.Pressed += async () => await ResetText();
 
         // ------------------------------
         // TextEdit setup
@@ -71,7 +78,17 @@ public partial class Game : Node2D
         if (textEdit != null)
             currentText = textEdit.Text.Split("\n", StringSplitOptions.RemoveEmptyEntries);
     }
-
+    private async Task ResetText()
+    {
+        GD.Print("Resetting TextEdit");
+        var textEdit = GetNodeOrNull<TextEdit>("IDE/TextEdit");
+        if (textEdit != null)
+        {
+            textEdit.Text = "";
+            currentText = Array.Empty<string>();
+            await Task.CompletedTask;
+        }
+    }
     // ------------------------------
     // Execute all commands sequentially
     // ------------------------------
@@ -115,7 +132,7 @@ public partial class Game : Node2D
         if (_robot == null) return;
 
         int steps = 20; // divide movement into steps
-        float movePerStep = stepSize / steps;
+        float movePerStep = stepSize*90 / steps;
         float delayPerStep = 0.02f; // ~50 FPS
 
         for (int i = 0; i < steps; i++)
