@@ -1,74 +1,137 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Threading.Tasks;
 
 public partial class Game : Node2D
 {
+    // Game instance
     public DodgeGame DodgeGameInstance { get; private set; } = new();
-    private String initialText;
-    private CharacterBody2D _robot;
 
-    // Command dictionary now declared but not initialized here
-    private Dictionary<string, Action<string>> _commands;
+    // Robot node
+    private CharacterBody2D? _robot;
+
+    // Command dictionary: command -> async action
+    private Dictionary<string, Func<float, Task>> _commands;
+
+    // Current text lines
+    private string[] currentText = Array.Empty<string>();
+
+    // Optional Run button exported in inspector
+    [Export] public Button? RunButton { get; set; }
 
     public override void _Ready()
     {
-        var textEditInit = GetNode<TextEdit>("IDE/TextEdit");
-        this.initialText = textEditInit.Text;
         GD.Print("Game Scene Loaded");
 
-        // Get Robot node
-        _robot = GetNode<CharacterBody2D>("robot");
-
-        // Initialize commands here (can use non-static methods now)
-        _commands = new Dictionary<string, Action<string>>()
+        // ------------------------------
+        // RunButton setup
+        // ------------------------------
+        if (RunButton == null)
         {
-            { "left", args => MoveRobot(Vector2.Left) },
-            { "right", args => MoveRobot(Vector2.Right) },
-            { "up", args => MoveRobot(Vector2.Up) },
-            { "down", args => MoveRobot(Vector2.Down) },
-        };
+            RunButton = GetNodeOrNull<Button>("RunButton");
+        }
 
-        // Setup TextEdit callback
-        var textEdit = GetNode<TextEdit>("IDE/TextEdit");
-        textEdit.TextChanged += OnTextChanged;
+        if (RunButton != null)
+            RunButton.Pressed += async () => await ExecuteCommandsSequentially();
+
+        // ------------------------------
+        // TextEdit setup
+        // ------------------------------
+        var textEdit = GetNodeOrNull<TextEdit>("IDE/TextEdit");
+        if (textEdit != null)
+        {
+            textEdit.TextChanged += OnTextChanged;
+            currentText = textEdit.Text.Split("\n", StringSplitOptions.RemoveEmptyEntries);
+        }
+
+        // ------------------------------
+        // Robot setup
+        // ------------------------------
+        _robot = GetNodeOrNull<CharacterBody2D>("robot");
+        if (_robot == null)
+            GD.PrintErr("Robot node not found!");
+
+        // ------------------------------
+        // Initialize commands
+        // ------------------------------
+        _commands = new Dictionary<string, Func<float, Task>>()
+        {
+            { "left", step => MoveRobot(Vector2.Left, step) },
+            { "right", step => MoveRobot(Vector2.Right, step) },
+            { "up", step => MoveRobot(Vector2.Up, step) },
+            { "down", step => MoveRobot(Vector2.Down, step) },
+            { "sleep", async seconds => await Sleep(seconds) }
+        };
     }
 
     private void OnTextChanged()
     {
-        var textEdit = GetNode<TextEdit>("IDE/TextEdit");
-        var lines = textEdit.Text.Split("\n", StringSplitOptions.RemoveEmptyEntries);
+        var textEdit = GetNodeOrNull<TextEdit>("IDE/TextEdit");
+        if (textEdit != null)
+            currentText = textEdit.Text.Split("\n", StringSplitOptions.RemoveEmptyEntries);
+    }
 
-        foreach (var line in lines)
+    // ------------------------------
+    // Execute all commands sequentially
+    // ------------------------------
+    private async Task ExecuteCommandsSequentially()
+    {
+        foreach (var line in currentText)
         {
             var trimmed = line.Trim();
-            var commandInd = trimmed.IndexOf("(");
-            if (commandInd == -1) continue;
+            if (string.IsNullOrEmpty(trimmed)) continue;
 
-            var command = trimmed.Substring(0, commandInd);
+            int open = trimmed.IndexOf("(");
+            int close = trimmed.IndexOf(")");
 
-            // Execute command if exists
+            if (open == -1 || close == -1) continue;
+
+            string command = trimmed.Substring(0, open).Trim().ToLower();
+            string argStr = trimmed.Substring(open + 1, close - open - 1).Trim();
+
+            float argValue = 0;
+            if (!float.TryParse(argStr, out argValue))
+            {
+                argValue = command == "sleep" ? 1f : 50f; // default step size
+            }
+
             if (_commands.TryGetValue(command, out var action))
             {
-                action(""); // currently no args
+                await action(argValue); // sequentially await each command
             }
             else
             {
-                GD.Print("Not a valid command");
+                GD.Print($"Unknown command: {command}");
             }
         }
     }
 
-    private void MoveRobot(Vector2 direction)
+    // ------------------------------
+    // Move the robot smoothly
+    // ------------------------------
+    private async Task MoveRobot(Vector2 direction, float stepSize)
     {
-        if (_robot == null)
+        if (_robot == null) return;
+
+        int steps = 20; // divide movement into steps
+        float movePerStep = stepSize / steps;
+        float delayPerStep = 0.02f; // ~50 FPS
+
+        for (int i = 0; i < steps; i++)
         {
-            GD.PrintErr("Robot node not found!");
-            return;
+            _robot.Position += direction * movePerStep;
+            await ToSignal(GetTree().CreateTimer(delayPerStep), SceneTreeTimer.SignalName.Timeout);
         }
 
-        _robot.Position += direction * 10;
-        GD.Print($"Robot moved {direction}");
+        GD.Print($"Robot moved {direction} by {stepSize}");
+    }
+
+    // ------------------------------
+    // Sleep helper
+    // ------------------------------
+    private async Task Sleep(float seconds)
+    {
+        await ToSignal(GetTree().CreateTimer(seconds), SceneTreeTimer.SignalName.Timeout);
     }
 }

@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4nfb6qxi8roi"]
+[gd_scene load_steps=17 format=4 uid="uid://c4nfb6qxi8roi"]
 
 [ext_resource type="Texture2D" uid="uid://cfo3fso4gw1q1" path="res://icon.svg" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://c5xonsprvkyok" path="res://Game.cs" id="1_feb5d"]
 [ext_resource type="Script" uid="uid://l61rmwrtdvtb" path="res://Robot.cs" id="2_e2o6t"]
+[ext_resource type="Texture2D" uid="uid://dxdp08n65r23p" path="res://rocks_shadow.png" id="2_ryrav"]
+[ext_resource type="Texture2D" uid="uid://dr8gof5w1vgs4" path="res://assets/black.png" id="4_7jktm"]
+[ext_resource type="Texture2D" uid="uid://b0aw32qdqxis" path="res://assets/white.png" id="5_ryrav"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_e2o6t"]
 
@@ -21,11 +24,163 @@ corner_radius_bottom_left = 10
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
 size = Vector2(137.85315, 131.07346)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eow3j"]
+texture = ExtResource("4_7jktm")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/terrains_peering_bit/bottom_right_corner = 0
+0:1/0/terrains_peering_bit/bottom_side = 0
+0:1/0/terrains_peering_bit/bottom_left_corner = 0
+0:1/0/terrains_peering_bit/left_side = 0
+0:1/0/terrains_peering_bit/top_left_corner = 0
+0:1/0/terrains_peering_bit/top_side = 0
+0:1/0/terrains_peering_bit/top_right_corner = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+0:3/0 = 0
+0:3/0/terrain_set = 0
+1:3/0 = 0
+1:3/0/terrain_set = 0
+2:3/0 = 0
+2:3/0/terrain_set = 0
+3:3/0 = 0
+3:3/0/terrain_set = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5wjh"]
+texture = ExtResource("5_ryrav")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/terrains_peering_bit/bottom_right_corner = 0
+0:1/0/terrains_peering_bit/bottom_side = 0
+0:1/0/terrains_peering_bit/bottom_left_corner = 0
+0:1/0/terrains_peering_bit/left_side = 0
+0:1/0/terrains_peering_bit/top_left_corner = 0
+0:1/0/terrains_peering_bit/top_side = 0
+0:1/0/terrains_peering_bit/top_right_corner = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+0:3/0 = 0
+0:3/0/terrain_set = 0
+1:3/0 = 0
+1:3/0/terrain_set = 0
+2:3/0 = 0
+2:3/0/terrain_set = 0
+3:3/0 = 0
+3:3/0/terrain_set = 0
+
+[sub_resource type="TileSet" id="TileSet_vef74"]
+tile_size = Vector2i(50, 50)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_eow3j")
+sources/1 = SubResource("TileSetAtlasSource_j5wjh")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ryrav"]
+texture = ExtResource("4_7jktm")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vef74"]
+texture = ExtResource("5_ryrav")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hve3p"]
+sources/0 = SubResource("TileSetAtlasSource_ryrav")
+sources/1 = SubResource("TileSetAtlasSource_vef74")
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_feb5d")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1156.0
+offset_bottom = 650.0
+color = Color(0.40023273, 0.2017565, 0.26756668, 1)
+
+[node name="RocksShadow" type="Sprite2D" parent="."]
+visibility_layer = 512
+position = Vector2(920.3281, 534.28125)
+scale = Vector2(4.1757813, 3.803385)
+texture = ExtResource("2_ryrav")
+
 [node name="IDE" type="CanvasGroup" parent="."]
-position = Vector2(199, 250)
+position = Vector2(99, 278)
 
 [node name="Sprite2D" type="Sprite2D" parent="IDE"]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
@@ -44,7 +199,7 @@ syntax_highlighter = SubResource("CodeHighlighter_e2o6t")
 highlight_current_line = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="IDE"]
+[node name="ResetText" type="Button" parent="IDE"]
 offset_left = -50.0
 offset_top = -128.0
 offset_right = 112.0
@@ -56,20 +211,6 @@ theme_override_fonts/font = SubResource("SystemFont_feb5d")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_fc0e3")
 text = "RESET TEXT"
-
-[node name="Button" type="Button" parent="IDE/Button"]
-layout_mode = 0
-offset_left = 218.0
-offset_top = 4.0
-offset_right = 292.0
-offset_bottom = 53.0
-tooltip_text = "tohle vrátí kód do původního stavu"
-theme_override_colors/font_color = Color(0.8352941, 0.02745098, 0.07058824, 1)
-theme_override_colors/font_pressed_color = Color(0, 1, 0.3529412, 1)
-theme_override_fonts/font = SubResource("SystemFont_feb5d")
-theme_override_font_sizes/font_size = 23
-theme_override_styles/normal = SubResource("StyleBoxFlat_fc0e3")
-text = "RUN"
 
 [node name="robot" type="CharacterBody2D" parent="."]
 position = Vector2(817, 190)
@@ -84,5 +225,34 @@ texture = ExtResource("1_80nbo")
 position = Vector2(0, -7)
 scale = Vector2(0.885, 0.885)
 shape = SubResource("RectangleShape2D_80nbo")
+
+[node name="RunButton" type="Button" parent="."]
+offset_left = 267.0
+offset_top = 154.0
+offset_right = 341.0
+offset_bottom = 203.0
+tooltip_text = "tohle vrátí kód do původního stavu"
+theme_override_colors/font_color = Color(0.8352941, 0.02745098, 0.07058824, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0.3529412, 1)
+theme_override_fonts/font = SubResource("SystemFont_feb5d")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_fc0e3")
+text = "RUN"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(191.00002, 20.000002)
+rotation = 1.5707964
+scale = Vector2(0.935, 0.935)
+tile_map_data = PackedByteArray("AAABAPP/AQAAAAEAAAABAPL/AAAAAAEAAAABAPH/AQAAAAEAAAABAPD/AAAAAAEAAAABAO//AAAAAAEAAAABAO7/AQAAAAEAAAACAO7/AAAAAAEAAAACAO//AQAAAAEAAAACAPD/AQAAAAEAAAACAPH/AQAAAAEAAAACAPL/AQAAAAEAAAACAPP/AQAAAAEAAAADAPP/AQAAAAEAAAADAPL/AAAAAAEAAAADAPH/AQAAAAEAAAADAPD/AAAAAAEAAAADAO//AQAAAAEAAAADAO7/AAAAAAEAAAAEAO7/AAAAAAEAAAAFAO7/AQAAAAEAAAAFAO//AQAAAAEAAAAFAPD/AQAAAAEAAAAEAPH/AAAAAAEAAAAEAPL/AQAAAAEAAAAEAPP/AQAAAAEAAAAFAPP/AAAAAAEAAAAFAPT/AQAAAAEAAAAEAPD/AQAAAAEAAAAFAPH/AQAAAAEAAAAFAPL/AQAAAAEAAAAGAO//AQAAAAEAAAAGAPD/AAAAAAEAAAAHAPH/AAAAAAEAAAAHAPL/AAAAAAEAAAAGAPL/AQAAAAEAAAAHAPD/AQAAAAEAAAAHAPP/AQAAAAEAAAAHAPT/AAAAAAEAAAAGAPT/AQAAAAEAAAAGAPX/AQAAAAEAAAAFAPX/AQAAAAEAAAAEAPT/AAAAAAEAAAAGAPP/AAAAAAEAAAAEAPX/AAAAAAEAAAADAPX/AAAAAAEAAAACAPT/AQAAAAEAAAADAPT/AQAAAAEAAAAGAPb/AQAAAAEAAAAFAPb/AAAAAAEAAAAEAPb/AAAAAAEAAAADAPb/AQAAAAEAAAACAPb/AAAAAAEAAAABAPX/AAAAAAEAAAAEAPf/AQAAAAEAAAACAPf/AQAAAAEAAAADAPf/AAAAAAEAAAABAPf/AAAAAAEAAAABAPb/AAAAAAEAAAABAPT/AAAAAAEAAAACAPX/AAAAAAEAAAA=")
+tile_set = SubResource("TileSet_vef74")
+rendering_quadrant_size = 100
+physics_quadrant_size = 50
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(191.00002, 20.000002)
+rotation = 1.5707964
+scale = Vector2(0.935, 0.935)
+tile_set = SubResource("TileSet_hve3p")
+format = 2
 
 [connection signal="text_changed" from="IDE/TextEdit" to="." method="_on_text_edit_text_changed"]

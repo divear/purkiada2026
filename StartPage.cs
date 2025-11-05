@@ -17,6 +17,10 @@ public partial class StartPage : Control
       AddChild(gameScene);
       GD.Print("Start Page ");
     };
+    this.SettingsButton.Pressed += () =>
+    {
+      GD.Print("nastaveni jsem jeste neudelal");
+    };
     GD.Print("Start Page Loaded");
   }
 }
