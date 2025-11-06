@@ -244,4 +244,8 @@ text = "RUN"
 position = Vector2(2305, 404)
 shape = SubResource("RectangleShape2D_7jktm")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1034, 515)
+scale = Vector2(1.435, 1.435)
+
 [connection signal="text_changed" from="IDE/TextEdit" to="." method="_on_text_edit_text_changed"]
