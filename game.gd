@@ -128,3 +128,8 @@ func _move_robot(direction: Vector2, step_size: float) -> void:
 # ------------------------------
 func _sleep(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
+
+
+func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
+	# change level
+	print("entered")
