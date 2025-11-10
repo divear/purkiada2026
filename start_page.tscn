@@ -7,6 +7,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1985.0
+offset_bottom = 815.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mx1rd")
@@ -38,9 +40,72 @@ layout_mode = 2
 [node name="SettingsButton" type="Button" parent="MainMenu/CenterContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 150
-text = "settings"
+text = "nastavení"
 
 [node name="NewGameButton" type="Button" parent="MainMenu/CenterContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 200
-text = "new game"
+text = "nová hra"
+
+[node name="Camera2D" type="Camera2D" parent="MainMenu/CenterContainer"]
+position = Vector2(2367, 815)
+zoom = Vector2(0.635, 0.635)
+
+[node name="Label" type="Label" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -377.0
+offset_right = 377.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "PURKIÁDA 2026"
+
+[node name="Label" type="Label" parent="MainMenu/Label"]
+layout_mode = 0
+offset_left = -707.0
+offset_top = 313.0
+offset_right = -336.0
+offset_bottom = 416.0
+theme_override_font_sizes/font_size = 75
+text = "Ovládání:"
+
+[node name="Label" type="Label" parent="MainMenu/Label/Label"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 120.0
+offset_right = 628.0
+offset_bottom = 333.0
+theme_override_font_sizes/font_size = 50
+text = "piš kód do textového pole a dostaň robota do cíle"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="MainMenu/Label"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 463.0
+offset_top = 297.0
+offset_right = 781.0
+offset_bottom = 297.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 75
+text = "Vytvořili:"
+
+[node name="Label3" type="Label" parent="MainMenu/Label/Label2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 108.0
+offset_right = 425.0
+offset_bottom = 331.0
+theme_override_font_sizes/font_size = 50
+text = "Lukáš Odehnal
+Jiří Ukropec
+Linda Vašíčková"
+autowrap_mode = 2

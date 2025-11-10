@@ -5,6 +5,7 @@ var robot: CharacterBody2D
 
 # Command dictionary: command -> function
 var commands := {}
+var level = 1
 
 # Current text lines
 var current_text: PackedStringArray = []
@@ -18,12 +19,12 @@ func _ready() -> void:
 
 	# ------------------------------
 	# RunButton setup
-	# ------------------------------
-	if run_button == null:
-		run_button = get_node_or_null("RunButton")
-	if reset_button == null:
-		reset_button = get_node_or_null("ResetButton")
 
+	if run_button == null:
+		run_button = get_node_or_null("IDE/RunButton")
+	if reset_button == null:
+		reset_button = get_node_or_null("IDE/ResetButton")
+		
 	if run_button:
 		run_button.pressed.connect(_on_run_pressed)
 	if reset_button:
@@ -67,11 +68,7 @@ func _on_text_changed() -> void:
 # Reset button handler
 # ------------------------------
 func _on_reset_pressed() -> void:
-	print("Resetting TextEdit")
-	var text_edit := get_node_or_null("IDE/TextEdit") as TextEdit
-	if text_edit:
-		text_edit.text = ""
-		current_text = []
+	get_tree().reload_current_scene()
 
 # ------------------------------
 # Run button handler
@@ -100,7 +97,8 @@ func _execute_commands_sequentially() -> void:
 		var arg_value := float(arg_str) if arg_str.is_valid_float() else 0.0
 		if not arg_str.is_valid_float():
 			arg_value = 1.0 if command == "sleep" else 50.0  # default step size
-
+		if arg_value > 10:
+			arg_value = 10
 		if command in commands:
 			await commands[command].call(arg_value)
 		else:
@@ -131,5 +129,13 @@ func _sleep(seconds: float) -> void:
 
 
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
+	level+=1
+	# tree.change_scene_to_file()
+
+	var first_stones := get_node_or_null("Stones1")
+	first_stones.queue_free()
+	var game_scene := load("res://levels/stones_%d.tscn" % level).instantiate() as Node
+	add_child(game_scene)
+	game_scene.position = Vector2(46, 10) # Set position in pixels
 	# change level
 	print("entered")

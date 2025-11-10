@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=4 uid="uid://btmve7je2e2iy"]
+
+[ext_resource type="Texture2D" uid="uid://lpw5rflrw5s5" path="res://assets/tile_0009.png" id="1_wmydg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ryrav"]
+texture = ExtResource("1_wmydg")
+texture_region_size = Vector2i(18, 18)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_eow3j"]
+tile_size = Vector2i(18, 18)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ryrav")
+
+[node name="Stones1" type="TileMapLayer"]
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAAFAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAHAAMAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_eow3j")
+use_kinematic_bodies = true
