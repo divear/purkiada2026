@@ -9,6 +9,8 @@ var level = 1
 
 # Current text lines
 var current_text: PackedStringArray = []
+var tilemap_position
+var player_init_pos
 
 # Exported buttons
 @export var run_button: Button
@@ -16,7 +18,19 @@ var current_text: PackedStringArray = []
 
 func _ready() -> void:
 	print("Game Scene Loaded")
+	player_init_pos = $robot.position
 
+	for i in range(20):
+		print("Stones"+str(i+2))
+		if(get_node_or_null("Stones"+str(i+2))):
+			var tilemap = get_node("Stones"+str(i+2))
+			tilemap_position = tilemap.position
+			tilemap.set_physics_process(false)  # stop collisions
+			tilemap.visible = false  
+			tilemap.position = Vector2(999, 0)  # use a Vector2
+
+
+	#tilemap.hide()
 	# ------------------------------
 	# RunButton setup
 
@@ -74,6 +88,8 @@ func _on_reset_pressed() -> void:
 # Run button handler
 # ------------------------------
 func _on_run_pressed() -> void:
+	$robot.position=player_init_pos
+	
 	await _execute_commands_sequentially()
 
 # ------------------------------
@@ -127,15 +143,40 @@ func _move_robot(direction: Vector2, step_size: float) -> void:
 func _sleep(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 
-
-func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
-	level+=1
-	# tree.change_scene_to_file()
-
-	var first_stones := get_node_or_null("Stones1")
-	first_stones.queue_free()
-	var game_scene := load("res://levels/stones_%d.tscn" % level).instantiate() as Node
-	add_child(game_scene)
-	game_scene.position = Vector2(46, 10) # Set position in pixels
-	# change level
-	print("entered")
+func _on_flag_body_entered(body: Node2D) -> void:
+	if(body==robot):
+		level += 1
+		player_init_pos = $robot.position
+		
+		print("it was a robot")
+		print(level)
+		print(body.name)
+		get_node("Stones"+str(level-1)).queue_free()
+		print("Stones"+str(level-1))
+		# Get references BEFORE freeing
+		var first_stones = get_node_or_null("Stones"+str(level-1))
+		
+		var another_tilemap = get_node_or_null("Stones"+str(level))
+		if(another_tilemap):
+			another_tilemap.show()
+			another_tilemap.position = tilemap_position
+		
+	
+	
+	
+	# Copy position of Flag to Flag2 safely
+	#if first_stones:
+		#var flag2 = first_stones.get_node_or_null("Flag2")
+		#var flag = game_scene.get_node_or_null("level_flag")
+		#print(flag2)
+		#print(flag)
+		#
+		#if flag2 and flag:
+			#flag2.position = flag.position
+		#else:
+			#print("Could not find Flag2 or Flag node!")
+		#
+		## Now free the old scene
+		#first_stones.queue_free()
+	
+	# Set new scene position
