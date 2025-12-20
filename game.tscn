@@ -289,7 +289,7 @@ position = Vector2(417, 242.5)
 scale = Vector2(1, 1.015625)
 texture = ExtResource("7_vef74")
 
-[node name="Label" type="Label" parent="."]
+[node name="LevelName" type="Label" parent="."]
 offset_left = 1534.0
 offset_top = 53.0
 offset_right = 1717.0
@@ -298,7 +298,7 @@ theme = SubResource("Theme_j5wjh")
 theme_override_colors/font_color = Color(0.3019608, 1, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_vef74")
 theme_override_font_sizes/font_size = 50
-text = "LEVEL 1"
+text = "LEVEL 1.1"
 
 [node name="Stones1" type="TileMapLayer" parent="."]
 position = Vector2(136, 10.000001)

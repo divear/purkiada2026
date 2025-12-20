@@ -6,6 +6,7 @@ var robot: CharacterBody2D
 # Command dictionary: command -> function
 var commands := {}
 var level = 1
+var ueberlevel = 1
 
 # Current text lines
 var current_text: PackedStringArray = []
@@ -157,9 +158,13 @@ func _on_flag_body_entered(body: Node2D) -> void:
 		var first_stones = get_node_or_null("Stones"+str(level-1))
 		
 		var another_tilemap = get_node_or_null("Stones"+str(level))
+		$LevelName.text = "LEVEL " + str(ueberlevel)+ "." +str(level)
 		if(another_tilemap):
 			another_tilemap.show()
 			another_tilemap.position = tilemap_position
+		else:
+			ueberlevel+=1
+			print("change to another level")
 		
 	
 	
