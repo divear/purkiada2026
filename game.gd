@@ -185,3 +185,17 @@ func _on_flag_body_entered(body: Node2D) -> void:
 		#first_stones.queue_free()
 	
 	# Set new scene position
+
+
+func _on_stones_tree_entered() -> void:
+	pass
+
+func _on_skull_body_entered(body: Node) -> void:
+		print(body)
+		if(body==robot):
+			get_tree().reload_current_scene()
+	
+
+
+func _on_win_body_entered(body: Node2D) -> void:
+	get_tree().root.add_child()

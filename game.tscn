@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://c4nfb6qxi8roi"]
+[gd_scene load_steps=26 format=4 uid="uid://c4nfb6qxi8roi"]
 
 [ext_resource type="Script" uid="uid://cd8gy0fl21bw2" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://cfo3fso4gw1q1" path="res://icon.svg" id="1_80nbo"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://lpw5rflrw5s5" path="res://assets/tile_0009.png" id="8_hve3p"]
 [ext_resource type="Texture2D" uid="uid://8iu3yu7ha12m" path="res://assets/tilemap.png" id="8_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://bncj7tms5vq8j" path="res://assets/flag.png" id="8_vef74"]
+[ext_resource type="Texture2D" uid="uid://cht64taxdrqub" path="res://assets/purepng.com-skullsskullhuman-skullskeleton-skullbrain-holdercliparthead-14215269710839tiw8-1778795014.png" id="10_hve3p"]
+[ext_resource type="Texture2D" uid="uid://dlahu64gpqgkd" path="res://assets/door.png" id="10_mfdv2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iotsf"]
 texture = ExtResource("8_j5wjh")
@@ -181,6 +183,12 @@ sources/0 = SubResource("TileSetAtlasSource_mfdv2")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vef74"]
 size = Vector2(26.42694, 28.659359)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iotsf"]
+size = Vector2(92, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfdv2"]
+size = Vector2(93, 89)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7jktm")
 
@@ -223,9 +231,7 @@ offset_bottom = 151.1271
 scale = Vector2(1.2356911, 1.407729)
 theme_override_font_sizes/font_size = 20
 text = "right(1)
-down(1)
-right(1)
-down(1)
+down(2)
 "
 syntax_highlighter = SubResource("CodeHighlighter_e2o6t")
 highlight_current_line = true
@@ -290,15 +296,15 @@ scale = Vector2(1, 1.015625)
 texture = ExtResource("7_vef74")
 
 [node name="LevelName" type="Label" parent="."]
-offset_left = 1534.0
-offset_top = 53.0
-offset_right = 1717.0
-offset_bottom = 122.0
+offset_left = 1708.0
+offset_top = -74.0
+offset_right = 1933.0
+offset_bottom = -5.0
 theme = SubResource("Theme_j5wjh")
 theme_override_colors/font_color = Color(0.3019608, 1, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_vef74")
 theme_override_font_sizes/font_size = 50
-text = "LEVEL 1.1"
+text = "LEVEL 0.1"
 
 [node name="Stones1" type="TileMapLayer" parent="."]
 position = Vector2(136, 10.000001)
@@ -321,6 +327,7 @@ rotation = -1.2819971
 texture = ExtResource("8_vef74")
 
 [node name="Stones2" type="TileMapLayer" parent="."]
+visible = false
 position = Vector2(136, 10.000001)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAAGAAUAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAMAAAAAAAAAAAA=")
@@ -341,7 +348,6 @@ rotation = -1.2819971
 texture = ExtResource("8_vef74")
 
 [node name="Stones3" type="TileMapLayer" parent="."]
-visible = false
 position = Vector2(136, 10.000001)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAJAAQAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAA=")
@@ -362,7 +368,6 @@ rotation = -1.2819971
 texture = ExtResource("8_vef74")
 
 [node name="Stones4" type="TileMapLayer" parent="."]
-visible = false
 position = Vector2(136, 10.000001)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAAIAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAADAAgAAAAAAAAAAAACAAgAAAAAAAAAAAAIAAYAAAAAAAAAAAAHAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAAGAAcAAAAAAAAAAAAEAAYAAAAAAAAAAAACAAcAAAAAAAAAAAAJAAQAAAAAAAAAAAA=")
@@ -382,8 +387,59 @@ position = Vector2(6.4718914, 128.00003)
 rotation = -1.2819971
 texture = ExtResource("8_vef74")
 
+[node name="Win" type="Area2D" parent="."]
+position = Vector2(161, 834)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Win"]
+position = Vector2(16, 30)
+shape = SubResource("RectangleShape2D_iotsf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Win"]
+position = Vector2(16.000015, 27.999992)
+scale = Vector2(0.37, 0.31)
+texture = ExtResource("10_mfdv2")
+
+[node name="Skull" type="Area2D" parent="."]
+position = Vector2(600, 361)
+
+[node name="Sprite2D" type="Sprite2D" parent="Skull"]
+position = Vector2(31.999996, -35.00003)
+scale = Vector2(0.05372068, 0.04819831)
+texture = ExtResource("10_hve3p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skull"]
+position = Vector2(33.5, -39)
+shape = SubResource("RectangleShape2D_mfdv2")
+
+[node name="Skull" type="Area2D" parent="Skull"]
+position = Vector2(91, 361)
+
+[node name="Sprite2D" type="Sprite2D" parent="Skull/Skull"]
+position = Vector2(31.999996, -35.00003)
+scale = Vector2(0.05372068, 0.04819831)
+texture = ExtResource("10_hve3p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skull/Skull"]
+position = Vector2(33.5, -39)
+shape = SubResource("RectangleShape2D_mfdv2")
+
+[node name="Skull" type="Area2D" parent="Skull/Skull"]
+position = Vector2(-183, -84)
+
+[node name="Sprite2D" type="Sprite2D" parent="Skull/Skull/Skull"]
+position = Vector2(31.999996, -35.00003)
+scale = Vector2(0.05372068, 0.04819831)
+texture = ExtResource("10_hve3p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skull/Skull/Skull"]
+position = Vector2(33.5, -39)
+shape = SubResource("RectangleShape2D_mfdv2")
+
 [connection signal="text_changed" from="IDE/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="tree_entered" from="Stones1" to="." method="_on_stones_tree_entered"]
 [connection signal="body_entered" from="Stones1/Flag" to="." method="_on_flag_body_entered"]
 [connection signal="body_entered" from="Stones2/Flag" to="." method="_on_flag_body_entered"]
 [connection signal="body_entered" from="Stones3/Flag" to="." method="_on_flag_body_entered"]
 [connection signal="body_entered" from="Stones4/Flag" to="." method="_on_flag_body_entered"]
+[connection signal="body_entered" from="Win" to="." method="_on_win_body_entered"]
+[connection signal="body_entered" from="Skull" to="." method="_on_skull_body_entered"]
