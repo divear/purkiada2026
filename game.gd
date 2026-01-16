@@ -3,6 +3,7 @@ extends Node2D
 # Robot node
 var robot: CharacterBody2D
 
+
 # Command dictionary: command -> function
 var commands := {}
 var level = 1
@@ -20,15 +21,21 @@ var player_init_pos
 func _ready() -> void:
 	print("Game Scene Loaded")
 	player_init_pos = $robot.position
+	var first_level = get_node_or_null("Stones1") 
+	if first_level:
+		tilemap_position = first_level.position
+	else:
+		# Fallback: set a default if Stones1 isn't found
+		tilemap_position = Vector2.ZERO
 
 	for i in range(20):
-		print("Stones"+str(i+2))
-		if(get_node_or_null("Stones"+str(i+2))):
-			var tilemap = get_node("Stones"+str(i+2))
-			tilemap_position = tilemap.position
-			tilemap.set_physics_process(false)  # stop collisions
-			tilemap.visible = false  
-			tilemap.position = Vector2(999, 0)  # use a Vector2
+		var tilemap = get_node_or_null("Stones" + str(i+2))
+		if tilemap:
+			tilemap.visible = false
+			tilemap.position = Vector2(9999, 9999)
+			
+			# This is the correct property for TileMapLayer in Godot 4.3+
+			tilemap.enabled = false
 
 
 	#tilemap.hide()
@@ -143,30 +150,36 @@ func _move_robot(direction: Vector2, step_size: float) -> void:
 # ------------------------------
 func _sleep(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
-
+	
+	
 func _on_flag_body_entered(body: Node2D) -> void:
-	if(body==robot):
+	if body == robot:
+		# 1. Identify the CURRENT level stones and the NEXT level stones
+		var current_stones_name = "Stones" + str(level)
+		var next_stones_name = "Stones" + str(level + 1)
+		
+		var current_node = get_node_or_null(current_stones_name)
+		var next_node = get_node_or_null(next_stones_name)
+
+		# 2. Show the NEXT level FIRST
+		if next_node:
+			next_node.enabled = true
+			next_node.visible = true # Extra safety
+			if tilemap_position != null:
+				next_node.position = tilemap_position
+			print("Showing: ", next_stones_name)
+		else:
+			ueberlevel += 1
+			print("No more stones found for this section.")
+
+		# 3. NOW delete the old stones
+		if current_node:
+			current_node.queue_free()
+
+		# 4. Update variables for the next time
 		level += 1
 		player_init_pos = $robot.position
-		
-		print("it was a robot")
-		print(level)
-		print(body.name)
-		get_node("Stones"+str(level-1)).queue_free()
-		print("Stones"+str(level-1))
-		# Get references BEFORE freeing
-		var first_stones = get_node_or_null("Stones"+str(level-1))
-		
-		var another_tilemap = get_node_or_null("Stones"+str(level))
-		$LevelName.text = "LEVEL " + str(ueberlevel)+ "." +str(level)
-		if(another_tilemap):
-			another_tilemap.show()
-			another_tilemap.position = tilemap_position
-		else:
-			ueberlevel+=1
-			print("change to another level")
-		
-	
+		$LevelName.text = "LEVEL " + str(ueberlevel) + "." + str(level)
 	
 	
 	# Copy position of Flag to Flag2 safely
@@ -196,6 +209,53 @@ func _on_skull_body_entered(body: Node) -> void:
 			get_tree().reload_current_scene()
 	
 
-
 func _on_win_body_entered(body: Node2D) -> void:
-	get_tree().root.add_child()
+	# Create a temporary HTTPRequest node
+	print(body)
+	if(body==get_node_or_null("Key")):
+		get_tree().change_scene_to_file("res://win.tscn") # Tímto změníte scénu
+	
+func add_point_to_server():
+	var http_node = HTTPRequest.new()
+	add_child(http_node)
+	
+	# Connect the signal to a local function
+	http_node.request_completed.connect(_on_request_completed)
+	
+	# Perform the request
+	var error = http_node.request("https://api.github.com/repos/godotengine/godot/releases/latest")
+	
+	if error != OK:
+		print("An error occurred")
+
+# Make sure this matches the signal connection above
+func _on_request_completed(result, response_code, headers, body):
+	print("Response received: ", response_code)
+	# Important: Remove the temporary node to clean up memory
+	# You'll need a reference to it, or use a persistent node setup instead.
+	
+func send_score_to_server(points: int):
+	# 1. Prepare the data
+	var data = {"user_points": points}
+	var json_query = JSON.stringify(data)
+	
+	# 2. Set the Headers (Tells the server we are sending JSON)
+	var headers = ["Content-Type: application/json"]
+	
+	# 3. Create/Access the node
+	var http_node = $HTTPRequest # Ensure this node exists!
+	
+	if not http_node.request_completed.is_connected(_on_request_completed):
+		http_node.request_completed.connect(_on_request_completed)
+
+	# 4. Perform the POST request
+	# Parameters: (url, headers, method, raw_data)
+	var error = http_node.request(
+		"https://your-server.com/api/score", 
+		headers, 
+		HTTPClient.METHOD_POST, 
+		json_query
+	)
+
+	if error != OK:
+		print("An error occurred in the HTTP request.")
