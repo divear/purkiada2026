@@ -253,7 +253,7 @@ theme_override_colors/font_pressed_color = Color(0, 1, 0.3529412, 1)
 theme_override_fonts/font = SubResource("SystemFont_feb5d")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_fc0e3")
-text = "RUN"
+text = "SPUSTIT KÓD"
 
 [node name="robot" type="CharacterBody2D" parent="."]
 position = Vector2(564, 174)
