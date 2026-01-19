@@ -13,8 +13,9 @@ func _ready() -> void:
 	print("Start Page Loaded")
 
 func _on_start_pressed() -> void:
-	var game_scene := load("res://game.tscn").instantiate() as Node
-	add_child(game_scene)
+
+	get_tree().change_scene_to_file("res://game.tscn")
+	
 	print("Start Page")
 
 func _on_settings_pressed() -> void:

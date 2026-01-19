@@ -62,10 +62,13 @@ layout_mode = 2
 
 [node name="NewGameButton" type="Button" parent="MainMenu/CenterContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("3_ea24q")
 theme_override_font_sizes/font_size = 200
 theme_override_styles/normal = ExtResource("3_ned2h")
+theme_override_styles/pressed = ExtResource("3_ned2h")
 theme_override_styles/hover = ExtResource("3_ned2h")
+theme_override_styles/focus = ExtResource("3_ned2h")
 text = "nová hra"
 
 [node name="Label" type="Label" parent="MainMenu"]
