@@ -1,9 +1,11 @@
-[gd_scene load_steps=25 format=4 uid="uid://c4nfb6qxi8roi"]
+[gd_scene load_steps=26 format=4 uid="uid://c4nfb6qxi8roi"]
 
 [ext_resource type="Script" uid="uid://cd8gy0fl21bw2" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://cfo3fso4gw1q1" path="res://icon.svg" id="1_80nbo"]
+[ext_resource type="Theme" uid="uid://t061dbq11eb3" path="res://start_page.tres" id="4_iotsf"]
 [ext_resource type="Script" uid="uid://b4ak2ien5a3ri" path="res://robot.gd" id="5_7jktm"]
 [ext_resource type="Texture2D" uid="uid://4i7qwa02awt0" path="res://assets/robot.png" id="5_hve3p"]
+[ext_resource type="StyleBox" uid="uid://dno55ydgwbm4c" path="res://button.tres" id="5_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://dy52n41gehbbh" path="res://assets/key.png" id="6_hve3p"]
 [ext_resource type="Texture2D" uid="uid://lpw5rflrw5s5" path="res://assets/tile_0009.png" id="8_hve3p"]
 [ext_resource type="Texture2D" uid="uid://8iu3yu7ha12m" path="res://assets/tilemap.png" id="8_j5wjh"]
@@ -141,19 +143,15 @@ tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_iotsf")
 
-[sub_resource type="CodeHighlighter" id="CodeHighlighter_e2o6t"]
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_iotsf"]
+number_color = Color(0.91764706, 0.6627451, 0.011764706, 1)
+symbol_color = Color(0.58431375, 0.7294118, 0.827451, 1)
+function_color = Color(14.608472, 10.765612, 0.80516833, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_feb5d"]
 font_italic = true
 font_weight = 100
 font_stretch = 125
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fc0e3"]
-bg_color = Color(0.83599424, 0.5297683, 0.42705747, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
 size = Vector2(88.13562, 81.35593)
@@ -222,24 +220,34 @@ offset_top = -214.0
 offset_right = 363.41113
 offset_bottom = 151.1271
 scale = Vector2(1.2356911, 1.407729)
-theme_override_font_sizes/font_size = 20
+theme = ExtResource("4_iotsf")
+theme_override_font_sizes/font_size = 30
 text = "right(1)
 down(2)
 "
-syntax_highlighter = SubResource("CodeHighlighter_e2o6t")
+placeholder_text = "//Sem piš svůj kód"
+backspace_deletes_composite_character_enabled = true
+caret_blink = true
+syntax_highlighter = SubResource("CodeHighlighter_iotsf")
+highlight_all_occurrences = true
 highlight_current_line = true
+draw_control_chars = true
+draw_tabs = true
 
 [node name="ResetButton" type="Button" parent="IDE"]
 offset_left = 36.0
 offset_top = -327.0
 offset_right = 198.0
 offset_bottom = -280.0
-tooltip_text = "tohle vrátí kód do původního stavu"
-theme_override_colors/font_color = Color(0.8343638, 0.94100696, 0.07202587, 1)
+tooltip_text = "tohle restartuje
+celou hru (!!!)"
+theme = ExtResource("4_iotsf")
+theme_override_colors/font_color = Color(0.8352941, 0.21960784, 0.07058824, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 0.3529412, 1)
 theme_override_fonts/font = SubResource("SystemFont_feb5d")
 theme_override_font_sizes/font_size = 23
-theme_override_styles/normal = SubResource("StyleBoxFlat_fc0e3")
+theme_override_styles/normal = ExtResource("5_lc2xo")
+theme_override_styles/hover = ExtResource("5_lc2xo")
 text = "RESET GAME "
 
 [node name="RunButton" type="Button" parent="IDE"]
@@ -247,12 +255,13 @@ offset_left = 287.0
 offset_top = -327.0
 offset_right = 361.0
 offset_bottom = -278.0
-tooltip_text = "tohle vrátí kód do původního stavu"
-theme_override_colors/font_color = Color(0.8352941, 0.02745098, 0.07058824, 1)
+theme = ExtResource("4_iotsf")
+theme_override_colors/font_color = Color(1, 1, 0.58431375, 1)
 theme_override_colors/font_pressed_color = Color(0, 1, 0.3529412, 1)
 theme_override_fonts/font = SubResource("SystemFont_feb5d")
 theme_override_font_sizes/font_size = 23
-theme_override_styles/normal = SubResource("StyleBoxFlat_fc0e3")
+theme_override_styles/normal = ExtResource("5_lc2xo")
+theme_override_styles/hover = ExtResource("5_lc2xo")
 text = "SPUSTIT KÓD"
 
 [node name="robot" type="CharacterBody2D" parent="."]

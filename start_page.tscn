@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6vnhumilvtbd"]
+[gd_scene load_steps=7 format=3 uid="uid://b6vnhumilvtbd"]
 
 [ext_resource type="Script" uid="uid://0g7i7d8fink1" path="res://start_page.gd" id="1_mx1rd"]
 [ext_resource type="FontFile" uid="uid://clrg8j16kl3kt" path="res://assets/Jersey_10/Jersey10-Regular.ttf" id="2_urypa"]
 [ext_resource type="Theme" uid="uid://t061dbq11eb3" path="res://start_page.tres" id="3_ea24q"]
+[ext_resource type="StyleBox" uid="uid://dno55ydgwbm4c" path="res://button.tres" id="3_ned2h"]
 
 [sub_resource type="Theme" id="Theme_ea24q"]
 default_font = ExtResource("2_urypa")
@@ -63,6 +64,8 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("3_ea24q")
 theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = ExtResource("3_ned2h")
+theme_override_styles/hover = ExtResource("3_ned2h")
 text = "nová hra"
 
 [node name="Label" type="Label" parent="MainMenu"]
@@ -81,24 +84,24 @@ text = "PURKIÁDA 2026"
 
 [node name="Label" type="Label" parent="MainMenu/Label"]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 823.0
-offset_right = 397.0
-offset_bottom = 926.0
+offset_left = 36.5
+offset_top = 609.0
+offset_right = 418.5
+offset_bottom = 744.0
 rotation = 6.2831855
 theme = SubResource("Theme_ea24q")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 125
 text = "Ovládání:"
 
 [node name="Label" type="Label" parent="MainMenu/Label/Label"]
 layout_mode = 0
-offset_left = 21.00003
-offset_top = 145.99997
-offset_right = 648.0
-offset_bottom = 358.99997
+offset_left = -75.99997
+offset_top = 142.99998
+offset_right = 640.75903
+offset_bottom = 584.0
 rotation = 6.2831855
 theme = SubResource("Theme_ned2h")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 100
 text = "piš kód do textového pole a dostaň robota do cíle"
 autowrap_mode = 2
 
@@ -108,22 +111,22 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -619.0
-offset_top = 595.0
-offset_right = -301.0
-offset_bottom = 595.0
+offset_left = -392.5
+offset_top = 630.0
+offset_right = -17.5
+offset_bottom = 630.0
 grow_horizontal = 0
 grow_vertical = 2
 theme = ExtResource("3_ea24q")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 125
 text = "Vytvořili:"
 
 [node name="Label3" type="Label" parent="MainMenu/Label/Label2"]
 layout_mode = 0
-offset_left = -138.0
-offset_top = 108.0
-offset_right = 425.0
-offset_bottom = 463.0
+offset_left = -80.0
+offset_top = 156.0
+offset_right = 483.0
+offset_bottom = 511.0
 theme = ExtResource("3_ea24q")
 theme_override_font_sizes/font_size = 100
 text = "Lukáš Odehnal
