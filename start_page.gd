@@ -1,6 +1,10 @@
 extends Control
 
 @export var start_button: Button
+@onready var alert_dialog = $AcceptDialog
+@onready var username_input = $username
+@onready var password_input = $password
+
 
 func _ready() -> void:
 	# Automatically get buttons if not assigned
@@ -13,7 +17,13 @@ func _ready() -> void:
 	print("Start Page Loaded")
 
 func _on_start_pressed() -> void:
-
+	var username = %username.text
+	var password = %heslo.text
+	if(!username or !password):
+		alert_dialog.dialog_text = "musíš zadat svoje údaje kamo"
+		alert_dialog.popup_centered()
+		return
+		
 	get_tree().change_scene_to_file("res://game.tscn")
 	
 	print("Start Page")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6vnhumilvtbd"]
+[gd_scene load_steps=8 format=3 uid="uid://b6vnhumilvtbd"]
 
 [ext_resource type="Script" uid="uid://0g7i7d8fink1" path="res://start_page.gd" id="1_mx1rd"]
 [ext_resource type="FontFile" uid="uid://clrg8j16kl3kt" path="res://assets/Jersey_10/Jersey10-Regular.ttf" id="2_urypa"]
@@ -11,6 +11,18 @@ default_font_size = 50
 
 [sub_resource type="Theme" id="Theme_ned2h"]
 default_font = ExtResource("2_urypa")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ned2h"]
+bg_color = Color(0.14770922, 0.14770922, 0.14770922, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [node name="StartPage" type="Control"]
 layout_mode = 3
@@ -47,10 +59,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -430.5
-offset_top = -140.5
-offset_right = 430.5
-offset_bottom = 140.5
+offset_left = -413.5
+offset_top = 490.5
+offset_right = 447.5
+offset_bottom = 771.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -83,7 +95,8 @@ offset_bottom = 678.0
 grow_horizontal = 2
 theme = ExtResource("3_ea24q")
 theme_override_font_sizes/font_size = 500
-text = "PURKIÁDA 2026"
+text = "ROBOCESTA"
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="MainMenu/Label"]
 layout_mode = 0
@@ -105,7 +118,7 @@ offset_bottom = 584.0
 rotation = 6.2831855
 theme = SubResource("Theme_ned2h")
 theme_override_font_sizes/font_size = 100
-text = "piš kód do textového pole a dostaň robota do cíle"
+text = "Piš kód do textového pole a dostaň robota do cíle."
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="MainMenu/Label"]
@@ -140,3 +153,64 @@ autowrap_mode = 2
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1993, 906)
 zoom = Vector2(0.635, 0.635)
+
+[node name="username" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.5
+offset_top = -65.5
+offset_right = 476.5
+offset_bottom = 157.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_ea24q")
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_uneditable_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.875, 0.875, 0.875, 0.6)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/selection_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_colors/clear_button_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/clear_button_color_pressed = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxFlat_ned2h")
+placeholder_text = "username"
+
+[node name="heslo" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -464.5
+offset_top = 188.5
+offset_right = 474.5
+offset_bottom = 411.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_ea24q")
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_uneditable_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.875, 0.875, 0.875, 0.6)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/selection_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_colors/clear_button_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/clear_button_color_pressed = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxFlat_ned2h")
+placeholder_text = "heslo"
+secret = true
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
