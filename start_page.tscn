@@ -137,23 +137,6 @@ Jiří Ukropec
 Linda Vašíčková"
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="MainMenu/Label/Label2"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1555.0
-offset_top = 600.0
-offset_right = -1180.0
-offset_bottom = 600.0
-grow_horizontal = 0
-grow_vertical = 2
-theme = ExtResource("3_ea24q")
-theme_override_font_sizes/font_size = 125
-text = "Hra se načítá...
-"
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1993, 906)
 zoom = Vector2(0.635, 0.635)
