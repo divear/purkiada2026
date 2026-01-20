@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://c4nfb6qxi8roi"]
+[gd_scene load_steps=23 format=4 uid="uid://c4nfb6qxi8roi"]
 
 [ext_resource type="Script" uid="uid://cd8gy0fl21bw2" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://cfo3fso4gw1q1" path="res://icon.svg" id="1_80nbo"]
@@ -148,23 +148,11 @@ number_color = Color(0.91764706, 0.6627451, 0.011764706, 1)
 symbol_color = Color(0.58431375, 0.7294118, 0.827451, 1)
 function_color = Color(14.608472, 10.765612, 0.80516833, 1)
 
-[sub_resource type="SystemFont" id="SystemFont_feb5d"]
-font_italic = true
-font_weight = 100
-font_stretch = 125
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
 size = Vector2(88.13562, 81.35593)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5wjh"]
 size = Vector2(63.5, 64.5)
-
-[sub_resource type="Theme" id="Theme_j5wjh"]
-
-[sub_resource type="SystemFont" id="SystemFont_vef74"]
-font_italic = true
-font_weight = 999
-font_stretch = 125
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfdv2"]
 texture = ExtResource("8_hve3p")
@@ -194,7 +182,7 @@ offset_left = -364.0
 offset_top = -216.0
 offset_right = 2649.0
 offset_bottom = 1288.0
-color = Color(0, 0.14901961, 0.33333334, 1)
+color = Color(0.2784314, 0.4627451, 0.6156863, 1)
 metadata/_edit_lock_ = true
 
 [node name="Ground" type="TileMap" parent="."]
@@ -235,33 +223,32 @@ draw_control_chars = true
 draw_tabs = true
 
 [node name="ResetButton" type="Button" parent="IDE"]
-offset_left = 36.0
-offset_top = -327.0
-offset_right = 198.0
-offset_bottom = -280.0
+offset_left = 6.0
+offset_top = -315.0
+offset_right = 173.0
+offset_bottom = -271.0
 tooltip_text = "tohle restartuje
 celou hru (!!!)"
 mouse_default_cursor_shape = 2
 theme = ExtResource("4_iotsf")
-theme_override_colors/font_color = Color(0.8352941, 0.21960784, 0.07058824, 1)
+theme_override_colors/font_color = Color(0.64705884, 0, 0.07058824, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 0.3529412, 1)
-theme_override_fonts/font = SubResource("SystemFont_feb5d")
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("5_lc2xo")
 theme_override_styles/hover = ExtResource("5_lc2xo")
+theme_override_styles/focus = ExtResource("5_lc2xo")
 text = "RESET GAME "
 
 [node name="RunButton" type="Button" parent="IDE"]
-offset_left = 287.0
-offset_top = -327.0
-offset_right = 361.0
-offset_bottom = -278.0
+offset_left = 220.0
+offset_top = -326.0
+offset_right = 441.0
+offset_bottom = -271.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("4_iotsf")
-theme_override_colors/font_color = Color(1, 1, 0.58431375, 1)
+theme_override_colors/font_color = Color(0.69411767, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 1, 0.3529412, 1)
-theme_override_fonts/font = SubResource("SystemFont_feb5d")
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("5_lc2xo")
 theme_override_styles/pressed = ExtResource("5_lc2xo")
 theme_override_styles/hover = ExtResource("5_lc2xo")
@@ -304,15 +291,14 @@ scale = Vector2(0.109375, 0.10839849)
 texture = ExtResource("6_hve3p")
 
 [node name="LevelName" type="Label" parent="."]
-offset_left = 1708.0
-offset_top = -74.0
-offset_right = 1933.0
-offset_bottom = -5.0
-theme = SubResource("Theme_j5wjh")
-theme_override_colors/font_color = Color(0.3019608, 1, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_vef74")
-theme_override_font_sizes/font_size = 50
-text = "LEVEL 0.1"
+offset_left = 1536.0
+offset_top = 46.0
+offset_right = 1761.0
+offset_bottom = 115.0
+theme = ExtResource("4_iotsf")
+theme_override_colors/font_color = Color(0.6959359, 1.0244062, 1.3118176, 1)
+theme_override_font_sizes/font_size = 70
+text = "Level 1.1"
 
 [node name="Stones1" type="TileMapLayer" parent="."]
 position = Vector2(136, 10.000001)
