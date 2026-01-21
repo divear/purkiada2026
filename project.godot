@@ -18,6 +18,10 @@ boot_splash/bg_color=Color(0.44705883, 0.6666667, 0.85882354, 1)
 boot_splash/image="uid://bcng4ijljb4wi"
 config/icon="uid://lpw5rflrw5s5"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [display]
 
 window/size/viewport_width=1280

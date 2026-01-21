@@ -211,7 +211,10 @@ scale = Vector2(1.2356911, 1.407729)
 theme = ExtResource("4_iotsf")
 theme_override_font_sizes/font_size = 30
 text = "right(1)
+down(1)
+right(1)
 down(2)
+right(1)
 "
 placeholder_text = "//Sem piš svůj kód"
 backspace_deletes_composite_character_enabled = true

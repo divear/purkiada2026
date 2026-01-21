@@ -180,6 +180,7 @@ func _on_flag_body_entered(body: Node2D) -> void:
 		level += 1
 		player_init_pos = $robot.position
 		$LevelName.text = "LEVEL " + str(ueberlevel) + "." + str(level)
+		add_point_to_server(level)
 	
 	
 	# Copy position of Flag to Flag2 safely
@@ -212,19 +213,19 @@ func _on_skull_body_entered(body: Node) -> void:
 func _on_win_body_entered(body: Node2D) -> void:
 	# Create a temporary HTTPRequest node
 	print(body)
+	add_point_to_server(level+1)
 	if(body==get_node_or_null("Key")):
 		get_tree().change_scene_to_file("res://win.tscn") # Tímto změníte scénu
 	
-func add_point_to_server():
+func add_point_to_server(point):
 	var http_node = HTTPRequest.new()
 	add_child(http_node)
-	
 	# Connect the signal to a local function
 	http_node.request_completed.connect(_on_request_completed)
-	
 	# Perform the request
-	var error = http_node.request("https://api.github.com/repos/godotengine/godot/releases/latest")
-	
+	var r = "https://quotepy.pythonanywhere.com/savescore?user="+Global.username+"&pass=" + Global.password + "&level=" + str(point-1)
+	var error = http_node.request(r)
+	print(r)
 	if error != OK:
 		print("An error occurred")
 
@@ -234,28 +235,3 @@ func _on_request_completed(result, response_code, headers, body):
 	# Important: Remove the temporary node to clean up memory
 	# You'll need a reference to it, or use a persistent node setup instead.
 	
-func send_score_to_server(points: int):
-	# 1. Prepare the data
-	var data = {"user_points": points}
-	var json_query = JSON.stringify(data)
-	
-	# 2. Set the Headers (Tells the server we are sending JSON)
-	var headers = ["Content-Type: application/json"]
-	
-	# 3. Create/Access the node
-	var http_node = $HTTPRequest # Ensure this node exists!
-	
-	if not http_node.request_completed.is_connected(_on_request_completed):
-		http_node.request_completed.connect(_on_request_completed)
-
-	# 4. Perform the POST request
-	# Parameters: (url, headers, method, raw_data)
-	var error = http_node.request(
-		"https://your-server.com/api/score", 
-		headers, 
-		HTTPClient.METHOD_POST, 
-		json_query
-	)
-
-	if error != OK:
-		print("An error occurred in the HTTP request.")

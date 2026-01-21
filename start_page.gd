@@ -23,10 +23,26 @@ func _on_start_pressed() -> void:
 		alert_dialog.dialog_text = "musíš zadat svoje údaje kamo"
 		alert_dialog.popup_centered()
 		return
-		
-	get_tree().change_scene_to_file("res://game.tscn")
+	Global.password = password
+	Global.username = username
 	
-	print("Start Page")
+	var http_node = HTTPRequest.new()
+	add_child(http_node)
+	# Connect the signal to a local function
+	http_node.request_completed.connect(_on_request_completed)
+	
+	# Perform the request
+	var r = "https://quotepy.pythonanywhere.com/verify?user=" + username + "&pass=" + password
+	var error = http_node.request(r)
 
-func _on_settings_pressed() -> void:
-	print("nastaveni jsem jeste neudelal")
+	
+	if error != OK:
+		alert_dialog.dialog_text = error
+		alert_dialog.popup_centered()
+		#UNCOMMENT IN PROD!!
+		return
+
+
+func _on_request_completed(result, response_code, headers, body):
+	print("Response received: ", response_code)
+	get_tree().change_scene_to_file("res://game.tscn")
