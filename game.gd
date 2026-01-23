@@ -2,7 +2,7 @@ extends Node2D
 
 # Robot node
 var robot: CharacterBody2D
-
+@onready var code_editor: CodeEdit = $IDE/TextEdit # Use the exact name of the node
 
 # Command dictionary: command -> function
 var commands := {}
@@ -104,8 +104,10 @@ func _on_run_pressed() -> void:
 # Execute all commands sequentially
 # ------------------------------
 func _execute_commands_sequentially() -> void:
-	for line in current_text:
-		var trimmed := line.strip_edges()
+	code_editor.set_gutter_draw(0, true)
+	for i in range(current_text.size()):
+		mark_line_as_running(i)
+		var trimmed := current_text[i].strip_edges()
 		if trimmed == "":
 			continue
 
@@ -128,6 +130,15 @@ func _execute_commands_sequentially() -> void:
 		else:
 			print("Unknown command: %s" % command)
 
+func mark_line_as_running(line_index: int):
+	# 1. Clear previous markers
+	code_editor.clear_executing_lines()
+	
+	# 2. Set the new execution arrow (gutter index 0)
+	code_editor.set_line_as_executing(line_index, true)
+	
+	# 3. Optional: Scroll the editor to that line so it's visible
+	code_editor.center_viewport_to_caret(line_index)
 # ------------------------------
 # Move the robot smoothly
 # ------------------------------
@@ -235,3 +246,7 @@ func _on_request_completed(result, response_code, headers, body):
 	# Important: Remove the temporary node to clean up memory
 	# You'll need a reference to it, or use a persistent node setup instead.
 	
+
+
+func _on_erase_button_pressed() -> void:
+	code_editor.text = ""

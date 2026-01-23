@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6vnhumilvtbd"]
+[gd_scene load_steps=9 format=3 uid="uid://b6vnhumilvtbd"]
 
 [ext_resource type="Script" uid="uid://0g7i7d8fink1" path="res://start_page.gd" id="1_mx1rd"]
+[ext_resource type="Texture2D" uid="uid://17yk8448gacv" path="res://cuterobot2.png" id="2_0yieb"]
 [ext_resource type="FontFile" uid="uid://clrg8j16kl3kt" path="res://assets/Jersey_10/Jersey10-Regular.ttf" id="2_urypa"]
 [ext_resource type="Theme" uid="uid://t061dbq11eb3" path="res://start_page.tres" id="3_ea24q"]
 [ext_resource type="StyleBox" uid="uid://dno55ydgwbm4c" path="res://button.tres" id="3_ned2h"]
@@ -43,6 +44,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.44705883, 0.6666667, 0.85882354, 1)
+
+[node name="Cuterobot2" type="Sprite2D" parent="."]
+position = Vector2(2548, 1586)
+rotation = 0.5235988
+scale = Vector2(0.23144528, 0.23144528)
+texture = ExtResource("2_0yieb")
 
 [node name="MainMenu" type="Control" parent="."]
 layout_mode = 1

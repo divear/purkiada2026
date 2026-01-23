@@ -1,17 +1,17 @@
 [gd_scene load_steps=23 format=4 uid="uid://c4nfb6qxi8roi"]
 
 [ext_resource type="Script" uid="uid://cd8gy0fl21bw2" path="res://game.gd" id="1_7jktm"]
-[ext_resource type="Texture2D" uid="uid://cfo3fso4gw1q1" path="res://icon.svg" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://da0j8c7tk1vha" path="res://assets/computer3.png" id="2_iotsf"]
 [ext_resource type="Theme" uid="uid://t061dbq11eb3" path="res://start_page.tres" id="4_iotsf"]
 [ext_resource type="Script" uid="uid://b4ak2ien5a3ri" path="res://robot.gd" id="5_7jktm"]
-[ext_resource type="Texture2D" uid="uid://4i7qwa02awt0" path="res://assets/robot.png" id="5_hve3p"]
 [ext_resource type="StyleBox" uid="uid://dno55ydgwbm4c" path="res://button.tres" id="5_lc2xo"]
-[ext_resource type="Texture2D" uid="uid://dy52n41gehbbh" path="res://assets/key.png" id="6_hve3p"]
+[ext_resource type="Texture2D" uid="uid://dns2bvk7pm8bc" path="res://assets/cuterobot.png" id="7_iotsf"]
 [ext_resource type="Texture2D" uid="uid://lpw5rflrw5s5" path="res://assets/tile_0009.png" id="8_hve3p"]
 [ext_resource type="Texture2D" uid="uid://8iu3yu7ha12m" path="res://assets/tilemap.png" id="8_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://cfxac7ywsvgwj" path="res://key-2579829470.png" id="8_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://bncj7tms5vq8j" path="res://assets/flag.png" id="8_vef74"]
 [ext_resource type="Texture2D" uid="uid://cht64taxdrqub" path="res://assets/purepng.com-skullsskullhuman-skullskeleton-skullbrain-holdercliparthead-14215269710839tiw8-1778795014.png" id="10_hve3p"]
-[ext_resource type="Texture2D" uid="uid://dlahu64gpqgkd" path="res://assets/door.png" id="10_mfdv2"]
+[ext_resource type="Texture2D" uid="uid://j1mvq0dwss3q" path="res://0fc84f0c3d4c39f-989682301.png" id="11_lc2xo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iotsf"]
 texture = ExtResource("8_j5wjh")
@@ -143,17 +143,6 @@ tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_iotsf")
 
-[sub_resource type="CodeHighlighter" id="CodeHighlighter_iotsf"]
-number_color = Color(0.91764706, 0.6627451, 0.011764706, 1)
-symbol_color = Color(0.58431375, 0.7294118, 0.827451, 1)
-function_color = Color(14.608472, 10.765612, 0.80516833, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
-size = Vector2(88.13562, 81.35593)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5wjh"]
-size = Vector2(63.5, 64.5)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfdv2"]
 texture = ExtResource("8_hve3p")
 texture_region_size = Vector2i(18, 18)
@@ -165,11 +154,22 @@ tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_mfdv2")
 
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_iotsf"]
+number_color = Color(0.91764706, 0.6627451, 0.011764706, 1)
+symbol_color = Color(0.58431375, 0.7294118, 0.827451, 1)
+function_color = Color(14.608472, 10.765612, 0.80516833, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
+size = Vector2(88.13562, 81.35593)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5wjh"]
+size = Vector2(63.5, 27.625)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vef74"]
 size = Vector2(26.42694, 28.659359)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iotsf"]
-size = Vector2(92, 84)
+size = Vector2(208.5, 134.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfdv2"]
 size = Vector2(93, 89)
@@ -185,28 +185,38 @@ offset_bottom = 1288.0
 color = Color(0.2784314, 0.4627451, 0.6156863, 1)
 metadata/_edit_lock_ = true
 
+[node name="Computer" type="Sprite2D" parent="."]
+position = Vector2(1626.0001, 805)
+scale = Vector2(0.8147367, 0.6066667)
+texture = ExtResource("2_iotsf")
+
 [node name="Ground" type="TileMap" parent="."]
 texture_filter = 1
 position = Vector2(136, 10.000001)
 scale = Vector2(5, 5)
 tile_set = SubResource("TileSet_lc2xo")
 format = 2
-layer_0/tile_data = PackedInt32Array(3, 917504, 0, 4, 917504, 0, 65542, 131072, 2, 5, 917504, 0, 6, 917504, 0, 7, 917504, 0, 65543, 917504, 1, 131079, 131072, 2, 196615, 917504, 1, 262151, 131072, 2, 262150, 917504, 1, 262149, 131072, 2, 262148, 917504, 1, 262147, 131072, 2, 196611, 917504, 1, 131075, 131072, 2, 65539, 917504, 1, 65540, 131072, 2, 65541, 917504, 1, 131076, 917504, 1, 131078, 917504, 1, 196612, 131072, 2, 196613, 917504, 1, 196614, 131072, 2, 131077, 131072, 2, 8, 917504, 0, 9, 917504, 0, 10, 917504, 0, 65546, 131072, 2, 131082, 917504, 1, 196618, 131072, 2, 393226, 917504, 1, 262154, 917504, 1, 327690, 131072, 2, 65544, 131072, 2, 131080, 917504, 1, 196616, 131072, 2, 262152, 917504, 1, 327688, 131072, 2, 393224, 917504, 1, 65545, 917504, 1, 131081, 131072, 2, 196617, 917504, 1, 262153, 131072, 2, 327689, 917504, 1, 393225, 131072, 2, 327684, 131072, 2, 393220, 917504, 1, 327685, 917504, 1, 393221, 131072, 2, 327686, 131072, 2, 393222, 917504, 1, 327687, 917504, 1, 393223, 131072, 2, 393219, 131072, 2, 327683, 917504, 1, 720908, 262144, 2, 655372, 262144, 2, 589836, 262144, 1, 458755, 917504, 1, 524291, 131072, 2, 65535, 851968, 0, 2, 917504, 0, 1, 917504, 0, 0, 917504, 0, 131071, 851968, 1, 196607, 851968, 1, 262143, 851968, 1, 327679, 851968, 1, 393215, 851968, 1, 458751, 851968, 1, 524287, 851968, 1, 458752, 131072, 2, 524288, 917504, 1, 589823, 851968, 1, 655359, 851968, 1, 720895, 851968, 1, 786431, 851968, 2, 720896, 917504, 2, 720897, 917504, 2, 720898, 917504, 2, 720899, 917504, 2, 720900, 917504, 2, 720901, 917504, 2, 720902, 917504, 2, 720903, 917504, 2, 720904, 917504, 2, 720905, 917504, 2, 720906, 917504, 2, 720907, 983040, 2, 655371, 983040, 1, 589835, 983040, 1, 524299, 983040, 1, 458763, 983040, 1, 393227, 983040, 1, 327691, 983040, 1, 262155, 983040, 1, 196619, 983040, 1, 65547, 983040, 1, 131083, 983040, 1, 11, 983040, 0, 458761, 917504, 1, 458760, 131072, 2, 458759, 917504, 1, 458758, 131072, 2, 393218, 917504, 1, 458754, 131072, 2, 458753, 917504, 1, 393217, 131072, 2, 327681, 917504, 1, 327680, 131072, 2, 262144, 917504, 1, 196608, 131072, 2, 131072, 917504, 1, 65536, 131072, 2, 65537, 917504, 1, 65538, 131072, 2, 327682, 131072, 2, 262145, 131072, 2, 196609, 917504, 1, 131073, 131072, 2, 131074, 917504, 1, 196610, 131072, 2, 262146, 917504, 1, 393216, 917504, 1, 589824, 131072, 2, 655360, 917504, 1, 655361, 131072, 2, 655362, 917504, 1, 655363, 131072, 2, 655364, 917504, 1, 655365, 131072, 2, 655366, 917504, 1, 655367, 131072, 2, 655368, 917504, 1, 655369, 131072, 2, 655370, 917504, 1, 589834, 131072, 2, 524298, 917504, 1, 458762, 131072, 2, 524297, 131072, 2, 524296, 917504, 1, 589832, 131072, 2, 589833, 917504, 1, 589831, 917504, 1, 589830, 131072, 2, 524294, 917504, 1, 524295, 131072, 2, 524293, 131072, 2, 458757, 917504, 1, 458756, 131072, 2, 524290, 917504, 1, 589827, 917504, 1, 589828, 131072, 2, 589829, 917504, 1, 524292, 917504, 1, 524289, 131072, 2, 589825, 917504, 1, 589826, 131072, 2, 720911, 851968, 6, 720913, 851968, 6, 655375, 786432, 5, 589839, 786432, 5, 589841, 786432, 5, 655377, 786432, 5)
+layer_0/tile_data = PackedInt32Array(3, 917504, 0, 4, 917504, 0, 65542, 131072, 2, 5, 917504, 0, 6, 917504, 0, 7, 917504, 0, 65543, 917504, 1, 131079, 131072, 2, 196615, 917504, 1, 262151, 131072, 2, 262150, 917504, 1, 262149, 131072, 2, 262148, 917504, 1, 262147, 131072, 2, 196611, 917504, 1, 131075, 131072, 2, 65539, 917504, 1, 65540, 131072, 2, 65541, 917504, 1, 131076, 917504, 1, 131078, 917504, 1, 196612, 131072, 2, 196613, 917504, 1, 196614, 131072, 2, 131077, 131072, 2, 8, 917504, 0, 9, 917504, 0, 10, 917504, 0, 65546, 131072, 2, 131082, 917504, 1, 196618, 131072, 2, 393226, 917504, 1, 262154, 917504, 1, 327690, 131072, 2, 65544, 131072, 2, 131080, 917504, 1, 196616, 131072, 2, 262152, 917504, 1, 327688, 131072, 2, 393224, 917504, 1, 65545, 917504, 1, 131081, 131072, 2, 196617, 917504, 1, 262153, 131072, 2, 327689, 917504, 1, 393225, 131072, 2, 327684, 131072, 2, 393220, 917504, 1, 327685, 917504, 1, 393221, 131072, 2, 327686, 131072, 2, 393222, 917504, 1, 327687, 917504, 1, 393223, 131072, 2, 393219, 131072, 2, 327683, 917504, 1, 458755, 917504, 1, 524291, 131072, 2, 65535, 851968, 0, 2, 917504, 0, 1, 917504, 0, 0, 917504, 0, 131071, 851968, 1, 196607, 851968, 1, 262143, 851968, 1, 327679, 851968, 1, 393215, 851968, 1, 458751, 851968, 1, 524287, 851968, 1, 458752, 131072, 2, 524288, 917504, 1, 589823, 851968, 1, 655359, 851968, 1, 720895, 851968, 1, 786431, 851968, 2, 720896, 917504, 2, 720897, 917504, 2, 720898, 917504, 2, 720899, 917504, 2, 720900, 917504, 2, 720901, 917504, 2, 720902, 917504, 2, 720903, 917504, 2, 720904, 917504, 2, 720905, 917504, 2, 720906, 917504, 2, 720907, 983040, 2, 655371, 983040, 1, 589835, 983040, 1, 524299, 983040, 1, 458763, 983040, 1, 393227, 983040, 1, 327691, 983040, 1, 262155, 983040, 1, 196619, 983040, 1, 65547, 983040, 1, 131083, 983040, 1, 11, 983040, 0, 458761, 917504, 1, 458760, 131072, 2, 458759, 917504, 1, 458758, 131072, 2, 393218, 917504, 1, 458754, 131072, 2, 458753, 917504, 1, 393217, 131072, 2, 327681, 917504, 1, 327680, 131072, 2, 262144, 917504, 1, 196608, 131072, 2, 131072, 917504, 1, 65536, 131072, 2, 65537, 917504, 1, 65538, 131072, 2, 327682, 131072, 2, 262145, 131072, 2, 196609, 917504, 1, 131073, 131072, 2, 131074, 917504, 1, 196610, 131072, 2, 262146, 917504, 1, 393216, 917504, 1, 589824, 131072, 2, 655360, 917504, 1, 655361, 131072, 2, 655362, 917504, 1, 655363, 131072, 2, 655364, 917504, 1, 655365, 131072, 2, 655366, 917504, 1, 655367, 131072, 2, 655368, 917504, 1, 655369, 131072, 2, 655370, 917504, 1, 589834, 131072, 2, 524298, 917504, 1, 458762, 131072, 2, 524297, 131072, 2, 524296, 917504, 1, 589832, 131072, 2, 589833, 917504, 1, 589831, 917504, 1, 589830, 131072, 2, 524294, 917504, 1, 524295, 131072, 2, 524293, 131072, 2, 458757, 917504, 1, 458756, 131072, 2, 524290, 917504, 1, 589827, 917504, 1, 589828, 131072, 2, 589829, 917504, 1, 524292, 917504, 1, 524289, 131072, 2, 589825, 917504, 1, 589826, 131072, 2)
+
+[node name="EternalStones2" type="TileMapLayer" parent="."]
+modulate = Color(0.47816715, 0.47816715, 0.47816715, 1)
+position = Vector2(8183.9995, 2432.0002)
+scale = Vector2(1.4, 1.4)
+tile_map_data = PackedByteArray("AAD4/wMAAAAAAAAAAAD4/wUAAAAAAAAAAAD3/wMAAAAAAAAAAAD2/wMAAAAAAAAAAAD1/wMAAAAAAAAAAAD0/wMAAAAAAAAAAAD3/wUAAAAAAAAAAAD2/wUAAAAAAAAAAAD1/wUAAAAAAAAAAAD0/wUAAAAAAAAAAAC8/r//AAAAAAAAAAC8/sD/AAAAAAAAAAC8/sH/AAAAAAAAAAC8/sL/AAAAAAAAAAC8/sP/AAAAAAAAAAC8/sT/AAAAAAAAAAC7/sT/AAAAAAAAAAC6/sT/AAAAAAAAAAC5/sT/AAAAAAAAAAC4/sT/AAAAAAAAAAC3/sP/AAAAAAAAAAC2/sP/AAAAAAAAAAC1/sP/AAAAAAAAAAC2/sT/AAAAAAAAAAC3/sT/AAAAAAAAAAC1/sT/AAAAAAAAAAC4/sP/AAAAAAAAAAC3/sL/AAAAAAAAAAC2/sH/AAAAAAAAAAC2/sD/AAAAAAAAAAC2/r//AAAAAAAAAAC1/sH/AAAAAAAAAAC1/sD/AAAAAAAAAAC1/r//AAAAAAAAAAC3/r//AAAAAAAAAAC4/r//AAAAAAAAAAC5/r//AAAAAAAAAAC6/r//AAAAAAAAAAC7/r//AAAAAAAAAAC7/sD/AAAAAAAAAAC4/sD/AAAAAAAAAAC3/sD/AAAAAAAAAAC5/sD/AAAAAAAAAAC6/sD/AAAAAAAAAAC7/sH/AAAAAAAAAAC7/sL/AAAAAAAAAAC7/sP/AAAAAAAAAAC6/sP/AAAAAAAAAAC5/sP/AAAAAAAAAAC5/sL/AAAAAAAAAAC6/sL/AAAAAAAAAAC6/sH/AAAAAAAAAAC5/sH/AAAAAAAAAAC4/sH/AAAAAAAAAAC3/sH/AAAAAAAAAAC4/sL/AAAAAAAAAAC2/sL/AAAAAAAAAAC1/sL/AAAAAAAAAAC9/r//AAAAAAAAAAC+/r//AAAAAAAAAAC9/sD/AAAAAAAAAAC9/sH/AAAAAAAAAAC9/sL/AAAAAAAAAAC9/sP/AAAAAAAAAAC+/sL/AAAAAAAAAAC+/sH/AAAAAAAAAAC+/sD/AAAAAAAAAAC//r//AAAAAAAAAAC//sD/AAAAAAAAAAC//sH/AAAAAAAAAAC//sL/AAAAAAAAAAC//sP/AAAAAAAAAAC+/sP/AAAAAAAAAAC4/r7/AAAAAAAAAAC9/r7/AAAAAAAAAAC8/r7/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_iotsf")
+
+[node name="Flag" type="Area2D" parent="EternalStones2"]
+position = Vector2(44.600006, 80)
+scale = Vector2(0.27812493, 0.28437498)
 
 [node name="IDE" type="CanvasGroup" parent="."]
 position = Vector2(1406, 475)
 
-[node name="Sprite2D" type="Sprite2D" parent="IDE"]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-position = Vector2(223.99994, 44.000015)
-scale = Vector2(3.8671868, 4.7578125)
-texture = ExtResource("1_80nbo")
-
-[node name="TextEdit" type="TextEdit" parent="IDE"]
-offset_left = 13.0
-offset_top = -214.0
-offset_right = 363.41113
-offset_bottom = 151.1271
+[node name="TextEdit" type="CodeEdit" parent="IDE"]
+offset_left = -6.0
+offset_top = -160.0
+offset_right = 344.41113
+offset_bottom = 205.1271
 scale = Vector2(1.2356911, 1.407729)
 theme = ExtResource("4_iotsf")
 theme_override_font_sizes/font_size = 30
@@ -218,18 +228,24 @@ right(1)
 "
 placeholder_text = "//Sem piš svůj kód"
 backspace_deletes_composite_character_enabled = true
+scroll_smooth = true
 caret_blink = true
 syntax_highlighter = SubResource("CodeHighlighter_iotsf")
 highlight_all_occurrences = true
 highlight_current_line = true
 draw_control_chars = true
 draw_tabs = true
+gutters_draw_executing_lines = true
+gutters_draw_line_numbers = true
+code_completion_enabled = true
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
 
 [node name="ResetButton" type="Button" parent="IDE"]
-offset_left = 6.0
-offset_top = -315.0
-offset_right = 173.0
-offset_bottom = -271.0
+offset_left = 137.0
+offset_top = 540.0
+offset_right = 304.0
+offset_bottom = 584.0
 tooltip_text = "tohle restartuje
 celou hru (!!!)"
 mouse_default_cursor_shape = 2
@@ -243,15 +259,15 @@ theme_override_styles/focus = ExtResource("5_lc2xo")
 text = "RESET GAME "
 
 [node name="RunButton" type="Button" parent="IDE"]
-offset_left = 220.0
-offset_top = -326.0
-offset_right = 441.0
-offset_bottom = -271.0
+offset_left = 52.0
+offset_top = -305.0
+offset_right = 357.0
+offset_bottom = -223.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("4_iotsf")
 theme_override_colors/font_color = Color(0.69411767, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 1, 0.3529412, 1)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 75
 theme_override_styles/normal = ExtResource("5_lc2xo")
 theme_override_styles/pressed = ExtResource("5_lc2xo")
 theme_override_styles/hover = ExtResource("5_lc2xo")
@@ -263,9 +279,9 @@ position = Vector2(564, 174)
 script = ExtResource("5_7jktm")
 
 [node name="Sprite2D" type="Sprite2D" parent="robot"]
-position = Vector2(-20.793915, -32.39531)
-scale = Vector2(0.07059856, 0.06584411)
-texture = ExtResource("5_hve3p")
+position = Vector2(-23.99997, -30)
+scale = Vector2(0.1523437, 0.14208412)
+texture = ExtResource("7_iotsf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="robot"]
 position = Vector2(-22, -29)
@@ -285,13 +301,13 @@ linear_damp = 16.882
 constant_force = Vector2(50, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
-position = Vector2(-248, 710)
+position = Vector2(-242, 713.1875)
 shape = SubResource("RectangleShape2D_j5wjh")
 
 [node name="Black" type="Sprite2D" parent="Key"]
-position = Vector2(-242, 709)
-scale = Vector2(0.109375, 0.10839849)
-texture = ExtResource("6_hve3p")
+position = Vector2(-222, 734)
+scale = Vector2(0.29531416, 0.2564657)
+texture = ExtResource("8_lc2xo")
 
 [node name="LevelName" type="Label" parent="."]
 offset_left = 1536.0
@@ -386,10 +402,20 @@ position = Vector2(6.4718914, 128.00003)
 rotation = -1.2819971
 texture = ExtResource("8_vef74")
 
+[node name="EternalStones" type="TileMapLayer" parent="."]
+position = Vector2(46, 794)
+scale = Vector2(6, 6)
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAAAAAD/////AAAAAAAAAAD+////AAAAAAAAAAD9////AAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_iotsf")
+
+[node name="Flag" type="Area2D" parent="EternalStones"]
+position = Vector2(44.600006, 80)
+scale = Vector2(0.27812493, 0.28437498)
+
 [node name="Stones5" type="TileMapLayer" parent="."]
 position = Vector2(136, 10)
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAkAAAAAAAAAAAAIAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAADAAoAAAAAAAAAAAACAAoAAAAAAAAAAAABAAoAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAYAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAkAAAAAAAAAAAAIAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAADAAoAAAAAAAAAAAACAAoAAAAAAAAAAAABAAoAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAEAAUAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_iotsf")
 
 [node name="Flag" type="Area2D" parent="Stones5"]
@@ -400,13 +426,13 @@ scale = Vector2(0.27812493, 0.28437498)
 position = Vector2(161, 834)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Win"]
-position = Vector2(16, 30)
+position = Vector2(-132.75, 29.25)
 shape = SubResource("RectangleShape2D_iotsf")
 
 [node name="Sprite2D" type="Sprite2D" parent="Win"]
-position = Vector2(16.000015, 27.999992)
-scale = Vector2(0.37, 0.31)
-texture = ExtResource("10_mfdv2")
+position = Vector2(-55, 25.999973)
+scale = Vector2(0.24000001, 0.2012557)
+texture = ExtResource("11_lc2xo")
 
 [node name="Skull" type="Area2D" parent="."]
 visible = false
@@ -445,6 +471,20 @@ texture = ExtResource("10_hve3p")
 position = Vector2(33.5, -39)
 shape = SubResource("RectangleShape2D_mfdv2")
 
+[node name="EraseButton" type="Button" parent="."]
+offset_left = 1543.0
+offset_top = 934.0
+offset_right = 1709.0
+offset_bottom = 998.0
+theme = ExtResource("4_iotsf")
+theme_override_colors/font_color = Color(0.81658995, 0.87974495, 0.9805135, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("5_lc2xo")
+theme_override_styles/pressed = ExtResource("5_lc2xo")
+theme_override_styles/hover = ExtResource("5_lc2xo")
+theme_override_styles/focus = ExtResource("5_lc2xo")
+text = "SMAŽ KÓD"
+
 [connection signal="text_changed" from="IDE/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="tree_entered" from="Stones1" to="." method="_on_stones_tree_entered"]
 [connection signal="body_entered" from="Stones1/Flag" to="." method="_on_flag_body_entered"]
@@ -453,3 +493,4 @@ shape = SubResource("RectangleShape2D_mfdv2")
 [connection signal="body_entered" from="Stones4/Flag" to="." method="_on_flag_body_entered"]
 [connection signal="body_entered" from="Win" to="." method="_on_win_body_entered"]
 [connection signal="body_entered" from="Skull" to="." method="_on_skull_body_entered"]
+[connection signal="pressed" from="EraseButton" to="." method="_on_erase_button_pressed"]
