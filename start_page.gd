@@ -34,15 +34,17 @@ func _on_start_pressed() -> void:
 	# Perform the request
 	var r = "https://quotepy.pythonanywhere.com/verify?user=" + username + "&pass=" + password
 	var error = http_node.request(r)
+	print("error:")
+	print(error)
 
-	
-	if error != OK:
-		alert_dialog.dialog_text = error
-		alert_dialog.popup_centered()
-		#UNCOMMENT IN PROD!!
-		return
 
 
 func _on_request_completed(result, response_code, headers, body):
 	print("Response received: ", response_code)
+		
+	if response_code == 400:
+		alert_dialog.dialog_text = str(response_code)
+		alert_dialog.popup_centered()
+		#UNCOMMENT IN PROD!!
+		return
 	get_tree().change_scene_to_file("res://game.tscn")

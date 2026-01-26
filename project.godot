@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Purkiáda 2026 - Programuj cestu!"
-config/description="Hra kde musíš dovést robota do cíle, basically umim.to želva."
+config/name="Robocesta"
+config/description="Hra kde musíš dovést robota do cíle, basically umime.to želva."
 run/main_scene="uid://b6vnhumilvtbd"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0.44705883, 0.6666667, 0.85882354, 1)
