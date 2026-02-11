@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c4nfb6qxi8roi"]
+[gd_scene format=4 uid="uid://c4nfb6qxi8roi"]
 
 [ext_resource type="Script" uid="uid://cd8gy0fl21bw2" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://da0j8c7tk1vha" path="res://assets/computer3.png" id="2_iotsf"]
@@ -174,10 +174,10 @@ size = Vector2(208.5, 134.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfdv2"]
 size = Vector2(93, 89)
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=533140215]
 script = ExtResource("1_7jktm")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=994699741]
 offset_left = -364.0
 offset_top = -216.0
 offset_right = 2649.0
@@ -185,12 +185,12 @@ offset_bottom = 1288.0
 color = Color(0.2784314, 0.4627451, 0.6156863, 1)
 metadata/_edit_lock_ = true
 
-[node name="Computer" type="Sprite2D" parent="."]
+[node name="Computer" type="Sprite2D" parent="." unique_id=427498757]
 position = Vector2(1626.0001, 805)
 scale = Vector2(0.8147367, 0.6066667)
 texture = ExtResource("2_iotsf")
 
-[node name="Ground" type="TileMap" parent="."]
+[node name="Ground" type="TileMap" parent="." unique_id=371212186]
 texture_filter = 1
 position = Vector2(136, 10.000001)
 scale = Vector2(5, 5)
@@ -198,21 +198,21 @@ tile_set = SubResource("TileSet_lc2xo")
 format = 2
 layer_0/tile_data = PackedInt32Array(3, 917504, 0, 4, 917504, 0, 65542, 131072, 2, 5, 917504, 0, 6, 917504, 0, 7, 917504, 0, 65543, 917504, 1, 131079, 131072, 2, 196615, 917504, 1, 262151, 131072, 2, 262150, 917504, 1, 262149, 131072, 2, 262148, 917504, 1, 262147, 131072, 2, 196611, 917504, 1, 131075, 131072, 2, 65539, 917504, 1, 65540, 131072, 2, 65541, 917504, 1, 131076, 917504, 1, 131078, 917504, 1, 196612, 131072, 2, 196613, 917504, 1, 196614, 131072, 2, 131077, 131072, 2, 8, 917504, 0, 9, 917504, 0, 10, 917504, 0, 65546, 131072, 2, 131082, 917504, 1, 196618, 131072, 2, 393226, 917504, 1, 262154, 917504, 1, 327690, 131072, 2, 65544, 131072, 2, 131080, 917504, 1, 196616, 131072, 2, 262152, 917504, 1, 327688, 131072, 2, 393224, 917504, 1, 65545, 917504, 1, 131081, 131072, 2, 196617, 917504, 1, 262153, 131072, 2, 327689, 917504, 1, 393225, 131072, 2, 327684, 131072, 2, 393220, 917504, 1, 327685, 917504, 1, 393221, 131072, 2, 327686, 131072, 2, 393222, 917504, 1, 327687, 917504, 1, 393223, 131072, 2, 393219, 131072, 2, 327683, 917504, 1, 458755, 917504, 1, 524291, 131072, 2, 65535, 851968, 0, 2, 917504, 0, 1, 917504, 0, 0, 917504, 0, 131071, 851968, 1, 196607, 851968, 1, 262143, 851968, 1, 327679, 851968, 1, 393215, 851968, 1, 458751, 851968, 1, 524287, 851968, 1, 458752, 131072, 2, 524288, 917504, 1, 589823, 851968, 1, 655359, 851968, 1, 720895, 851968, 1, 786431, 851968, 2, 720896, 917504, 2, 720897, 917504, 2, 720898, 917504, 2, 720899, 917504, 2, 720900, 917504, 2, 720901, 917504, 2, 720902, 917504, 2, 720903, 917504, 2, 720904, 917504, 2, 720905, 917504, 2, 720906, 917504, 2, 720907, 983040, 2, 655371, 983040, 1, 589835, 983040, 1, 524299, 983040, 1, 458763, 983040, 1, 393227, 983040, 1, 327691, 983040, 1, 262155, 983040, 1, 196619, 983040, 1, 65547, 983040, 1, 131083, 983040, 1, 11, 983040, 0, 458761, 917504, 1, 458760, 131072, 2, 458759, 917504, 1, 458758, 131072, 2, 393218, 917504, 1, 458754, 131072, 2, 458753, 917504, 1, 393217, 131072, 2, 327681, 917504, 1, 327680, 131072, 2, 262144, 917504, 1, 196608, 131072, 2, 131072, 917504, 1, 65536, 131072, 2, 65537, 917504, 1, 65538, 131072, 2, 327682, 131072, 2, 262145, 131072, 2, 196609, 917504, 1, 131073, 131072, 2, 131074, 917504, 1, 196610, 131072, 2, 262146, 917504, 1, 393216, 917504, 1, 589824, 131072, 2, 655360, 917504, 1, 655361, 131072, 2, 655362, 917504, 1, 655363, 131072, 2, 655364, 917504, 1, 655365, 131072, 2, 655366, 917504, 1, 655367, 131072, 2, 655368, 917504, 1, 655369, 131072, 2, 655370, 917504, 1, 589834, 131072, 2, 524298, 917504, 1, 458762, 131072, 2, 524297, 131072, 2, 524296, 917504, 1, 589832, 131072, 2, 589833, 917504, 1, 589831, 917504, 1, 589830, 131072, 2, 524294, 917504, 1, 524295, 131072, 2, 524293, 131072, 2, 458757, 917504, 1, 458756, 131072, 2, 524290, 917504, 1, 589827, 917504, 1, 589828, 131072, 2, 589829, 917504, 1, 524292, 917504, 1, 524289, 131072, 2, 589825, 917504, 1, 589826, 131072, 2)
 
-[node name="EternalStones2" type="TileMapLayer" parent="."]
+[node name="EternalStones2" type="TileMapLayer" parent="." unique_id=1330480288]
 modulate = Color(0.47816715, 0.47816715, 0.47816715, 1)
 position = Vector2(8183.9995, 2432.0002)
 scale = Vector2(1.4, 1.4)
 tile_map_data = PackedByteArray("AAD4/wMAAAAAAAAAAAD4/wUAAAAAAAAAAAD3/wMAAAAAAAAAAAD2/wMAAAAAAAAAAAD1/wMAAAAAAAAAAAD0/wMAAAAAAAAAAAD3/wUAAAAAAAAAAAD2/wUAAAAAAAAAAAD1/wUAAAAAAAAAAAD0/wUAAAAAAAAAAAC8/r//AAAAAAAAAAC8/sD/AAAAAAAAAAC8/sH/AAAAAAAAAAC8/sL/AAAAAAAAAAC8/sP/AAAAAAAAAAC8/sT/AAAAAAAAAAC7/sT/AAAAAAAAAAC6/sT/AAAAAAAAAAC5/sT/AAAAAAAAAAC4/sT/AAAAAAAAAAC3/sP/AAAAAAAAAAC2/sP/AAAAAAAAAAC1/sP/AAAAAAAAAAC2/sT/AAAAAAAAAAC3/sT/AAAAAAAAAAC1/sT/AAAAAAAAAAC4/sP/AAAAAAAAAAC3/sL/AAAAAAAAAAC2/sH/AAAAAAAAAAC2/sD/AAAAAAAAAAC2/r//AAAAAAAAAAC1/sH/AAAAAAAAAAC1/sD/AAAAAAAAAAC1/r//AAAAAAAAAAC3/r//AAAAAAAAAAC4/r//AAAAAAAAAAC5/r//AAAAAAAAAAC6/r//AAAAAAAAAAC7/r//AAAAAAAAAAC7/sD/AAAAAAAAAAC4/sD/AAAAAAAAAAC3/sD/AAAAAAAAAAC5/sD/AAAAAAAAAAC6/sD/AAAAAAAAAAC7/sH/AAAAAAAAAAC7/sL/AAAAAAAAAAC7/sP/AAAAAAAAAAC6/sP/AAAAAAAAAAC5/sP/AAAAAAAAAAC5/sL/AAAAAAAAAAC6/sL/AAAAAAAAAAC6/sH/AAAAAAAAAAC5/sH/AAAAAAAAAAC4/sH/AAAAAAAAAAC3/sH/AAAAAAAAAAC4/sL/AAAAAAAAAAC2/sL/AAAAAAAAAAC1/sL/AAAAAAAAAAC9/r//AAAAAAAAAAC+/r//AAAAAAAAAAC9/sD/AAAAAAAAAAC9/sH/AAAAAAAAAAC9/sL/AAAAAAAAAAC9/sP/AAAAAAAAAAC+/sL/AAAAAAAAAAC+/sH/AAAAAAAAAAC+/sD/AAAAAAAAAAC//r//AAAAAAAAAAC//sD/AAAAAAAAAAC//sH/AAAAAAAAAAC//sL/AAAAAAAAAAC//sP/AAAAAAAAAAC+/sP/AAAAAAAAAAC4/r7/AAAAAAAAAAC9/r7/AAAAAAAAAAC8/r7/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_iotsf")
 
-[node name="Flag" type="Area2D" parent="EternalStones2"]
+[node name="Flag" type="Area2D" parent="EternalStones2" unique_id=1375389874]
 position = Vector2(44.600006, 80)
 scale = Vector2(0.27812493, 0.28437498)
 
-[node name="IDE" type="CanvasGroup" parent="."]
+[node name="IDE" type="CanvasGroup" parent="." unique_id=1136541879]
 position = Vector2(1406, 475)
 
-[node name="TextEdit" type="CodeEdit" parent="IDE"]
+[node name="TextEdit" type="CodeEdit" parent="IDE" unique_id=1488026681]
 offset_left = -6.0
 offset_top = -160.0
 offset_right = 344.41113
@@ -241,7 +241,7 @@ code_completion_enabled = true
 auto_brace_completion_enabled = true
 auto_brace_completion_highlight_matching = true
 
-[node name="ResetButton" type="Button" parent="IDE"]
+[node name="ResetButton" type="Button" parent="IDE" unique_id=805571066]
 offset_left = 137.0
 offset_top = 540.0
 offset_right = 304.0
@@ -258,7 +258,7 @@ theme_override_styles/hover = ExtResource("5_lc2xo")
 theme_override_styles/focus = ExtResource("5_lc2xo")
 text = "RESET GAME "
 
-[node name="RunButton" type="Button" parent="IDE"]
+[node name="RunButton" type="Button" parent="IDE" unique_id=439525645]
 offset_left = 52.0
 offset_top = -305.0
 offset_right = 357.0
@@ -274,25 +274,25 @@ theme_override_styles/hover = ExtResource("5_lc2xo")
 theme_override_styles/focus = ExtResource("5_lc2xo")
 text = "SPUSTIT KÓD"
 
-[node name="robot" type="CharacterBody2D" parent="."]
+[node name="robot" type="CharacterBody2D" parent="." unique_id=167233537]
 position = Vector2(564, 174)
 script = ExtResource("5_7jktm")
 
-[node name="Sprite2D" type="Sprite2D" parent="robot"]
+[node name="Sprite2D" type="Sprite2D" parent="robot" unique_id=1025221095]
 position = Vector2(-23.99997, -30)
 scale = Vector2(0.1523437, 0.14208412)
 texture = ExtResource("7_iotsf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="robot"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="robot" unique_id=300321576]
 position = Vector2(-22, -29)
 scale = Vector2(0.885, 0.885)
 shape = SubResource("RectangleShape2D_80nbo")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1031819374]
 position = Vector2(1036, 552)
 scale = Vector2(1.435, 1.435)
 
-[node name="Key" type="RigidBody2D" parent="."]
+[node name="Key" type="RigidBody2D" parent="." unique_id=2128275079]
 position = Vector2(516, -21)
 input_pickable = true
 gravity_scale = 0.0
@@ -300,16 +300,16 @@ lock_rotation = true
 linear_damp = 16.882
 constant_force = Vector2(50, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=1980088616]
 position = Vector2(-242, 713.1875)
 shape = SubResource("RectangleShape2D_j5wjh")
 
-[node name="Black" type="Sprite2D" parent="Key"]
+[node name="Black" type="Sprite2D" parent="Key" unique_id=1011577619]
 position = Vector2(-222, 734)
 scale = Vector2(0.29531416, 0.2564657)
 texture = ExtResource("8_lc2xo")
 
-[node name="LevelName" type="Label" parent="."]
+[node name="LevelName" type="Label" parent="." unique_id=420676177]
 offset_left = 1536.0
 offset_top = 46.0
 offset_right = 1761.0
@@ -319,159 +319,159 @@ theme_override_colors/font_color = Color(0.6959359, 1.0244062, 1.3118176, 1)
 theme_override_font_sizes/font_size = 70
 text = "Level 1.1"
 
-[node name="Stones1" type="TileMapLayer" parent="."]
+[node name="Stones1" type="TileMapLayer" parent="." unique_id=1070575847]
 position = Vector2(136, 10.000001)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAAIAAcAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_iotsf")
 
-[node name="Flag" type="Area2D" parent="Stones1"]
+[node name="Flag" type="Area2D" parent="Stones1" unique_id=557116788]
 position = Vector2(136, 81.2)
 scale = Vector2(0.27812493, 0.28437498)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones1/Flag"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones1/Flag" unique_id=1343865609]
 position = Vector2(-3.5955086, -3.516489)
 scale = Vector2(1.0000001, 1)
 shape = SubResource("RectangleShape2D_vef74")
 
-[node name="FlagSprite" type="Sprite2D" parent="Stones1/Flag"]
+[node name="FlagSprite" type="Sprite2D" parent="Stones1/Flag" unique_id=1758891868]
 position = Vector2(4.3145905, -8.439561)
 rotation = -1.2819971
 texture = ExtResource("8_vef74")
 
-[node name="Stones2" type="TileMapLayer" parent="."]
+[node name="Stones2" type="TileMapLayer" parent="." unique_id=322085419]
 visible = false
 position = Vector2(136, 10.000001)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAAGAAUAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAMAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_iotsf")
 
-[node name="Flag" type="Area2D" parent="Stones2"]
+[node name="Flag" type="Area2D" parent="Stones2" unique_id=1148951843]
 position = Vector2(170.8, 26.999996)
 scale = Vector2(0.27812493, 0.28437498)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones2/Flag"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones2/Flag" unique_id=1372845499]
 position = Vector2(9.536743e-06, 128.70331)
 scale = Vector2(1.0000001, 1)
 shape = SubResource("RectangleShape2D_vef74")
 
-[node name="FlagSprite" type="Sprite2D" parent="Stones2/Flag"]
+[node name="FlagSprite" type="Sprite2D" parent="Stones2/Flag" unique_id=991169439]
 position = Vector2(6.4718914, 128.00003)
 rotation = -1.2819971
 texture = ExtResource("8_vef74")
 
-[node name="Stones3" type="TileMapLayer" parent="."]
+[node name="Stones3" type="TileMapLayer" parent="." unique_id=576091223]
 visible = false
 position = Vector2(136, 10.000001)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAJAAQAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_iotsf")
 
-[node name="Flag" type="Area2D" parent="Stones3"]
+[node name="Flag" type="Area2D" parent="Stones3" unique_id=1766796070]
 position = Vector2(170.60002, 62.199997)
 scale = Vector2(0.27812493, 0.28437498)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones3/Flag"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones3/Flag" unique_id=1913328868]
 position = Vector2(9.536743e-06, 128.70331)
 scale = Vector2(1.0000001, 1)
 shape = SubResource("RectangleShape2D_vef74")
 
-[node name="FlagSprite" type="Sprite2D" parent="Stones3/Flag"]
+[node name="FlagSprite" type="Sprite2D" parent="Stones3/Flag" unique_id=1594591545]
 position = Vector2(6.4718914, 128.00003)
 rotation = -1.2819971
 texture = ExtResource("8_vef74")
 
-[node name="Stones4" type="TileMapLayer" parent="."]
+[node name="Stones4" type="TileMapLayer" parent="." unique_id=262728998]
 visible = false
 position = Vector2(136, 10.000001)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAAIAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAADAAgAAAAAAAAAAAACAAgAAAAAAAAAAAAIAAYAAAAAAAAAAAAHAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAAGAAcAAAAAAAAAAAAEAAYAAAAAAAAAAAACAAcAAAAAAAAAAAAJAAQAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_iotsf")
 
-[node name="Flag" type="Area2D" parent="Stones4"]
+[node name="Flag" type="Area2D" parent="Stones4" unique_id=1121623193]
 position = Vector2(44.600006, 80)
 scale = Vector2(0.27812493, 0.28437498)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones4/Flag"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones4/Flag" unique_id=1510596976]
 position = Vector2(9.536743e-06, 128.70331)
 scale = Vector2(1.0000001, 1)
 shape = SubResource("RectangleShape2D_vef74")
 
-[node name="FlagSprite" type="Sprite2D" parent="Stones4/Flag"]
+[node name="FlagSprite" type="Sprite2D" parent="Stones4/Flag" unique_id=1836904480]
 position = Vector2(6.4718914, 128.00003)
 rotation = -1.2819971
 texture = ExtResource("8_vef74")
 
-[node name="EternalStones" type="TileMapLayer" parent="."]
+[node name="EternalStones" type="TileMapLayer" parent="." unique_id=89948118]
 position = Vector2(46, 794)
 scale = Vector2(6, 6)
 tile_map_data = PackedByteArray("AAAAAP//AAAAAAAAAAD/////AAAAAAAAAAD+////AAAAAAAAAAD9////AAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_iotsf")
 
-[node name="Flag" type="Area2D" parent="EternalStones"]
+[node name="Flag" type="Area2D" parent="EternalStones" unique_id=1419866149]
 position = Vector2(44.600006, 80)
 scale = Vector2(0.27812493, 0.28437498)
 
-[node name="Stones5" type="TileMapLayer" parent="."]
+[node name="Stones5" type="TileMapLayer" parent="." unique_id=368351693]
 position = Vector2(136, 10)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAAAAAYAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAkAAAAAAAAAAAAIAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAADAAoAAAAAAAAAAAACAAoAAAAAAAAAAAABAAoAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAEAAUAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_iotsf")
 
-[node name="Flag" type="Area2D" parent="Stones5"]
+[node name="Flag" type="Area2D" parent="Stones5" unique_id=21725726]
 position = Vector2(44.600006, 80)
 scale = Vector2(0.27812493, 0.28437498)
 
-[node name="Win" type="Area2D" parent="."]
+[node name="Win" type="Area2D" parent="." unique_id=1314500299]
 position = Vector2(161, 834)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Win"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Win" unique_id=235600104]
 position = Vector2(-132.75, 29.25)
 shape = SubResource("RectangleShape2D_iotsf")
 
-[node name="Sprite2D" type="Sprite2D" parent="Win"]
+[node name="Sprite2D" type="Sprite2D" parent="Win" unique_id=1395709177]
 position = Vector2(-55, 25.999973)
 scale = Vector2(0.24000001, 0.2012557)
 texture = ExtResource("11_lc2xo")
 
-[node name="Skull" type="Area2D" parent="."]
+[node name="Skull" type="Area2D" parent="." unique_id=424942348]
 visible = false
 position = Vector2(600, 361)
 
-[node name="Sprite2D" type="Sprite2D" parent="Skull"]
+[node name="Sprite2D" type="Sprite2D" parent="Skull" unique_id=584181244]
 position = Vector2(31.999996, -35.00003)
 scale = Vector2(0.05372068, 0.04819831)
 texture = ExtResource("10_hve3p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Skull"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skull" unique_id=1582933882]
 position = Vector2(28, -38)
 shape = SubResource("RectangleShape2D_mfdv2")
 
-[node name="Skull" type="Area2D" parent="Skull"]
+[node name="Skull" type="Area2D" parent="Skull" unique_id=1070738087]
 position = Vector2(91, 361)
 
-[node name="Sprite2D" type="Sprite2D" parent="Skull/Skull"]
+[node name="Sprite2D" type="Sprite2D" parent="Skull/Skull" unique_id=150996021]
 position = Vector2(31.999996, -35.00003)
 scale = Vector2(0.05372068, 0.04819831)
 texture = ExtResource("10_hve3p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Skull/Skull"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skull/Skull" unique_id=1265789475]
 position = Vector2(33.5, -39)
 shape = SubResource("RectangleShape2D_mfdv2")
 
-[node name="Skull" type="Area2D" parent="Skull/Skull"]
+[node name="Skull" type="Area2D" parent="Skull/Skull" unique_id=1970895409]
 position = Vector2(-183, -84)
 
-[node name="Sprite2D" type="Sprite2D" parent="Skull/Skull/Skull"]
+[node name="Sprite2D" type="Sprite2D" parent="Skull/Skull/Skull" unique_id=242917189]
 position = Vector2(31.999996, -35.00003)
 scale = Vector2(0.05372068, 0.04819831)
 texture = ExtResource("10_hve3p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Skull/Skull/Skull"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skull/Skull/Skull" unique_id=521406716]
 position = Vector2(33.5, -39)
 shape = SubResource("RectangleShape2D_mfdv2")
 
-[node name="EraseButton" type="Button" parent="."]
+[node name="EraseButton" type="Button" parent="." unique_id=1444038996]
 offset_left = 1543.0
 offset_top = 934.0
 offset_right = 1709.0
@@ -484,6 +484,16 @@ theme_override_styles/pressed = ExtResource("5_lc2xo")
 theme_override_styles/hover = ExtResource("5_lc2xo")
 theme_override_styles/focus = ExtResource("5_lc2xo")
 text = "SMAŽ KÓD"
+
+[node name="skibidi" type="TileMapLayer" parent="." unique_id=1239669781]
+position = Vector2(311, 278.00003)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_iotsf")
+
+[node name="Flag" type="Area2D" parent="skibidi" unique_id=696290987]
+position = Vector2(44.600006, 80)
+scale = Vector2(0.27812493, 0.28437498)
 
 [connection signal="text_changed" from="IDE/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="tree_entered" from="Stones1" to="." method="_on_stones_tree_entered"]

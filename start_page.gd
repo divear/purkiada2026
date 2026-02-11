@@ -17,14 +17,14 @@ func _ready() -> void:
 	print("Start Page Loaded")
 
 func _on_start_pressed() -> void:
-	var username = %username.text
-	var password = %heslo.text
-	if(!username or !password):
-		alert_dialog.dialog_text = "musíš zadat svoje údaje kamo"
-		alert_dialog.popup_centered()
-		return
-	Global.password = password
-	Global.username = username
+	#var username = %username.text
+	#var password = %heslo.text
+	#if(!username or !password):
+	#	alert_dialog.dialog_text = "musíš zadat svoje údaje kamo"
+	#	alert_dialog.popup_centered()
+	#	return
+	#Global.password = password
+	#Global.username = username
 	
 	#var http_node = HTTPRequest.new()
 	#add_child(http_node)
