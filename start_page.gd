@@ -26,16 +26,17 @@ func _on_start_pressed() -> void:
 	Global.password = password
 	Global.username = username
 	
-	var http_node = HTTPRequest.new()
-	add_child(http_node)
+	#var http_node = HTTPRequest.new()
+	#add_child(http_node)
 	# Connect the signal to a local function
-	http_node.request_completed.connect(_on_request_completed)
+	#http_node.request_completed.connect(_on_request_completed)
 	
 	# Perform the request
-	var r = "https://quotepy.pythonanywhere.com/verify?user=" + username + "&pass=" + password
-	var error = http_node.request(r)
-	print("error:")
-	print(error)
+	#var r = "https://quotepy.pythonanywhere.com/verify?user=" + username + "&pass=" + password
+	#var error = http_node.request(r)
+	
+	get_tree().change_scene_to_file("res://game.tscn")
+	
 
 
 
